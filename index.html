@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Archive LAB | 성인애착유형 테스트</title>
+
+    <style>
+
+        /* =========================
+           기본 설정
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Malgun Gothic", sans-serif;
+            background-color: #faf6ee;
+            color: #49372e;
+        }
+
+
+        /* =========================
+           상단
+        ========================= */
+
+        header {
+            height: 85px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5%;
+
+            background: #fffaf2;
+
+            border-bottom: 1px solid #e8ddce;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .menu {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           메인 화면
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            width: 100%;
+            min-height: 760px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background-image: url("images/background.png");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* =========================
+           가운데 내용
+        ========================= */
+
+        .center-content {
+            position: relative;
+
+            z-index: 10;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        .small-title {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .main-title {
+            font-size: clamp(42px, 5vw, 65px);
+
+            line-height: 1.2;
+
+            margin-bottom: 25px;
+
+            font-weight: 800;
+        }
+
+
+        .main-title span {
+            color: #a95c43;
+        }
+
+
+        .description {
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #74675e;
+        }
+
+
+        /* =========================
+           시작 버튼
+        ========================= */
+
+        .start-button {
+            margin-top: 35px;
+
+            padding: 19px 55px;
+
+            border: none;
+            border-radius: 50px;
+
+            background: #ad6047;
+
+            color: white;
+
+            font-size: 20px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(100, 60, 40, 0.20);
+
+            transition: 0.25s;
+        }
+
+
+        .start-button:hover {
+            transform: translateY(-4px);
+
+            background: #995039;
+
+            box-shadow:
+                0 12px 25px rgba(100, 60, 40, 0.25);
+        }
+
+
+        /* =========================
+           캐릭터 공통
+        ========================= */
+
+        .character {
+            position: absolute;
+
+            z-index: 3;
+        }
+
+
+        .character img {
+            width: 100%;
+            height: auto;
+
+            display: block;
+        }
+
+
+        /* =========================
+           안정형
+        ========================= */
+
+        .secure {
+            width: clamp(250px, 28vw, 440px);
+
+            left: 1%;
+            top: 5%;
+        }
+
+
+        /* =========================
+           불안형
+        ========================= */
+
+        .anxious {
+            width: clamp(250px, 28vw, 440px);
+
+            right: 1%;
+            top: 4%;
+        }
+
+
+        /* =========================
+           회피형
+        ========================= */
+
+        .avoidant {
+            width: clamp(250px, 28vw, 440px);
+
+            right: 4%;
+            bottom: 1%;
+        }
+
+
+        /* =========================
+           하단
+        ========================= */
+
+        footer {
+            padding: 35px 5%;
+
+            background: #fffaf2;
+
+            border-top: 1px solid #e8ddce;
+        }
+
+
+        .footer-title {
+            font-size: 18px;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+        }
+
+
+        .footer-text {
+            font-size: 16px;
+        }
+
+
+        .copyright {
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            color: #9b9087;
+        }
+
+
+        /* =========================
+           휴대폰
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: 65px;
+
+                padding: 0 20px;
+            }
+
+
+            .logo {
+                font-size: 19px;
+            }
+
+
+            .menu {
+                font-size: 25px;
+            }
+
+
+            .hero {
+                min-height: 720px;
+
+                background-position: center;
+            }
+
+
+            .center-content {
+                padding: 20px;
+
+                margin-top: 60px;
+            }
+
+
+            .small-title {
+                font-size: 20px;
+            }
+
+
+            .main-title {
+                font-size: 38px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .description {
+                font-size: 15px;
+            }
+
+
+            .start-button {
+                padding: 16px 35px;
+
+                font-size: 16px;
+
+                margin-top: 25px;
+            }
+
+
+            /* 모바일 캐릭터 */
+
+            .secure {
+                width: 170px;
+
+                left: -35px;
+                top: 20px;
+            }
+
+
+            .anxious {
+                width: 170px;
+
+                right: -35px;
+                top: 25px;
+            }
+
+
+            .avoidant {
+                width: 180px;
+
+                right: -30px;
+                bottom: 5px;
+            }
+
+
+            footer {
+                padding: 25px 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         상단
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            📖 Archive LAB
+        </div>
+
+        <div class="menu">
+            ☰
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         메인 화면
+    ========================== -->
+
+    <main class="hero">
+
+
+        <!-- 안정형 -->
+
+        <div class="character secure">
+
+            <img
+                src="images/secure.png"
+                alt="안정형"
+            >
+
+        </div>
+
+
+
+        <!-- 불안형 -->
+
+        <div class="character anxious">
+
+            <img
+                src="images/anxious.png"
+                alt="불안형"
+            >
+
+        </div>
+
+
+
+        <!-- 회피형 -->
+
+        <div class="character avoidant">
+
+            <img
+                src="images/avoidant.png"
+                alt="회피형"
+            >
+
+        </div>
+
+
+
+        <!-- 가운데 -->
+
+        <div class="center-content">
+
+            <div class="small-title">
+                두근두근,
+            </div>
+
+
+            <h1 class="main-title">
+
+                성인애착유형
+                <span>테스트</span>
+
+            </h1>
+
+
+            <div class="description">
+
+                몇 가지 질문에 답하며<br>
+
+                나의 관계 속 모습을 알아보세요.
+
+            </div>
+
+
+            <button
+                class="start-button"
+                onclick="startTest()"
+            >
+
+                테스트 시작하기 →
+
+            </button>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         하단
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-title">
+            청년 프로젝트 & 아카이브 연구소
+        </div>
+
+        <div class="footer-text">
+            기록은 남기고, 이야기는 이어지게.
+        </div>
+
+        <div class="copyright">
+            © 2026 Archive LAB. All rights reserved.
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         기능
+    ========================== -->
+
+    <script>
+
+        function startTest() {
+
+            alert("버튼 작동 성공!");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

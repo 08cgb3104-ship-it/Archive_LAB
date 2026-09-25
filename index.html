@@ -3,772 +3,1333 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>Archive LAB | 성인애착유형 테스트</title>
+<title>Archive LAB | 성인애착유형 테스트</title>
 
 
-    <style>
+<style>
 
-        /* =========================
-           기본 설정
-        ========================= */
+/* =========================
+   기본 설정
+========================= */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
 
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-        }
+body {
+    font-family:
+        "Malgun Gothic",
+        "Apple SD Gothic Neo",
+        sans-serif;
 
+    background: #fffaf2;
+    color: #49372e;
+}
 
-        body {
-            font-family:
-                "Malgun Gothic",
-                "Apple SD Gothic Neo",
-                sans-serif;
+button,
+input {
+    font-family: inherit;
+}
 
-            background: #fffaf2;
-            color: #49372e;
-        }
 
+/* =========================
+   전체 페이지
+========================= */
 
+.page {
+    min-height: 100svh;
 
-        /* =========================
-           전체 페이지
-        ========================= */
+    display: flex;
+    flex-direction: column;
+}
 
-        .page {
-            min-height: 100svh;
 
-            display: flex;
-            flex-direction: column;
-        }
+/* =========================
+   헤더
+========================= */
 
+header {
+    flex-shrink: 0;
 
+    width: 100%;
+    height: 76px;
 
-        /* =========================
-           헤더
-        ========================= */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        header {
-            flex-shrink: 0;
+    padding: 0 5%;
 
-            width: 100%;
-            height: 76px;
+    background: #fffaf2;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    border-bottom: 1px solid #eadfd1;
 
-            padding: 0 5%;
+    position: relative;
+    z-index: 100;
+}
 
-            background: #fffaf2;
 
-            border-bottom: 1px solid #eadfd1;
+.logo {
+    font-size: 23px;
+    font-weight: 800;
 
-            position: relative;
+    color: #49372e;
 
-            z-index: 100;
-        }
+    text-decoration: none;
 
+    cursor: pointer;
+}
 
 
-        /* =========================
-           왼쪽 Archive LAB
-        ========================= */
+.logo:hover {
+    opacity: 0.75;
+}
 
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
 
-            color: #49372e;
+/* =========================
+   오른쪽 메뉴
+========================= */
 
-            text-decoration: none;
+.menu-wrap {
+    position: relative;
+}
 
-            cursor: pointer;
-        }
 
+.menu {
+    font-size: 28px;
 
-        .logo:hover {
-            opacity: 0.75;
-        }
+    cursor: pointer;
 
+    user-select: none;
+}
 
 
-        /* =========================
-           오른쪽 햄버거 메뉴
-        ========================= */
+.dropdown-menu {
+    position: absolute;
 
-        .menu-wrap {
-            position: relative;
-        }
+    top: 45px;
+    right: 0;
 
+    width: 185px;
 
-        .menu {
-            font-size: 28px;
+    background: #fffaf2;
 
-            cursor: pointer;
+    border: 1px solid #eadfd1;
 
-            user-select: none;
-        }
+    border-radius: 14px;
 
+    box-shadow:
+        0 8px 25px
+        rgba(80, 55, 40, 0.15);
 
+    padding: 8px;
 
-        /* =========================
-           펼쳐지는 메뉴
-        ========================= */
+    display: none;
 
-        .dropdown-menu {
+    z-index: 1000;
+}
 
-            position: absolute;
 
-            top: 45px;
-            right: 0;
+.dropdown-menu.show {
+    display: block;
+}
 
-            width: 185px;
 
-            background: #fffaf2;
+.dropdown-menu a {
+    display: block;
 
-            border:
-                1px solid
-                #eadfd1;
+    padding: 13px 15px;
 
-            border-radius: 14px;
+    color: #49372e;
 
-            box-shadow:
-                0 8px 25px
-                rgba(80, 55, 40, 0.15);
+    text-decoration: none;
 
-            padding: 8px;
+    font-size: 14px;
 
-            display: none;
+    font-weight: 600;
 
-            z-index: 1000;
-        }
+    border-radius: 9px;
+}
 
 
+.dropdown-menu a:hover {
+    background: #f3e9dc;
+}
 
-        /* 메뉴가 열렸을 때 */
 
-        .dropdown-menu.show {
-            display: block;
-        }
+.dropdown-menu a + a {
+    margin-top: 3px;
+}
 
 
+/* =========================
+   메인 영역
+========================= */
 
-        /* 메뉴 항목 */
+.hero {
+    flex: 1;
 
-        .dropdown-menu a {
+    width: 100%;
 
-            display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-            padding:
-                13px
-                15px;
+    position: relative;
 
-            color: #49372e;
+    background-image:
+        url("images/background.png");
 
-            text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-            font-size: 14px;
+    padding:
+        55px
+        30px
+        35px;
+}
 
-            font-weight: 600;
 
-            border-radius: 9px;
-        }
+/* =========================
+   첫 화면
+========================= */
 
+#startScreen {
+    width: 100%;
+}
 
 
-        .dropdown-menu a:hover {
+.intro {
+    width: 100%;
 
-            background:
-                #f3e9dc;
-        }
+    max-width: 900px;
 
+    margin: 0 auto;
 
+    text-align: center;
+}
 
-        /* 메뉴 사이 구분선 */
 
-        .dropdown-menu a + a {
+.small-title {
+    font-size: 25px;
 
-            margin-top: 3px;
-        }
+    margin-bottom: 7px;
+}
 
 
+.main-title {
+    font-size:
+        clamp(40px, 5vw, 62px);
 
-        /* =========================
-           메인 영역
-        ========================= */
+    line-height: 1.15;
 
-        .hero {
+    font-weight: 800;
 
-            flex: 1;
+    margin-bottom: 20px;
+}
 
-            width: 100%;
 
-            display: flex;
+.main-title span {
+    color: #ad6047;
+}
 
-            flex-direction: column;
 
-            justify-content: center;
+.description {
+    font-size: 17px;
 
+    line-height: 1.8;
 
-            background-image:
-                url("images/background.png");
+    color: #74675e;
+}
 
-            background-size: cover;
 
-            background-position: center;
+/* =========================
+   시작 버튼
+========================= */
 
-            background-repeat: no-repeat;
+.start-button {
+    margin-top: 27px;
 
+    padding:
+        17px
+        45px;
 
-            padding:
-                55px
-                30px
-                35px;
-        }
+    border: none;
 
+    border-radius: 50px;
 
+    background: #ad6047;
 
-        /* =========================
-           제목 영역
-        ========================= */
+    color: white;
 
-        .intro {
+    font-size: 18px;
 
-            width: 100%;
+    font-weight: 700;
 
-            max-width: 900px;
+    cursor: pointer;
 
-            margin: 0 auto;
+    box-shadow:
+        0 8px 20px
+        rgba(100, 60, 40, 0.18);
 
-            text-align: center;
-        }
+    transition: 0.2s;
+}
 
 
+.start-button:hover {
+    transform: translateY(-3px);
 
-        .small-title {
+    background: #995039;
+}
 
-            font-size: 25px;
 
-            margin-bottom: 7px;
-        }
+/* =========================
+   캐릭터
+========================= */
 
+.characters {
+    width: 100%;
 
+    max-width: 1100px;
 
-        .main-title {
+    margin:
+        45px
+        auto
+        0;
 
-            font-size:
-                clamp(
-                    40px,
-                    5vw,
-                    62px
-                );
+    display: flex;
 
-            line-height: 1.15;
+    justify-content: center;
+    align-items: flex-end;
 
-            font-weight: 800;
+    gap: 18px;
+}
 
-            margin-bottom: 20px;
-        }
 
+.character {
+    flex: 1;
 
+    max-width: 350px;
 
-        .main-title span {
+    display: flex;
 
-            color: #ad6047;
-        }
+    justify-content: center;
+    align-items: flex-end;
+}
 
 
+.character img {
+    display: block;
 
-        /* =========================
-           설명
-        ========================= */
+    width: 100%;
+    height: auto;
 
-        .description {
+    object-fit: contain;
+}
 
-            font-size: 17px;
 
-            line-height: 1.8;
+.anxious {
+    transform: translateY(-5px);
+}
 
-            color: #74675e;
-        }
 
+/* =====================================
+   질문 화면
+===================================== */
 
+.quiz-screen {
+    display: none;
 
-        /* =========================
-           시작 버튼
-        ========================= */
+    width: 100%;
 
-        .start-button {
+    max-width: 720px;
 
-            margin-top: 27px;
+    margin: auto;
 
-            padding:
-                17px
-                45px;
+    text-align: center;
+}
 
-            border: none;
 
-            border-radius: 50px;
+.question-count {
+    font-size: 15px;
 
-            background: #ad6047;
+    font-weight: 700;
 
-            color: white;
+    color: #ad6047;
 
-            font-size: 18px;
+    margin-bottom: 15px;
+}
 
-            font-weight: 700;
 
-            cursor: pointer;
+/* 진행바 */
 
-            box-shadow:
-                0 8px 20px
-                rgba(
-                    100,
-                    60,
-                    40,
-                    0.18
-                );
+.progress {
+    width: 100%;
 
-            transition: 0.2s;
-        }
+    max-width: 500px;
 
+    height: 8px;
 
+    margin:
+        0
+        auto
+        55px;
 
-        .start-button:hover {
+    background: #eadfd1;
 
-            transform:
-                translateY(-3px);
+    border-radius: 100px;
 
-            background:
-                #995039;
-        }
+    overflow: hidden;
+}
 
 
+.progress-bar {
+    width: 16.66%;
 
-        /* =========================
-           캐릭터 영역
-        ========================= */
+    height: 100%;
 
-        .characters {
+    background: #ad6047;
 
-            width: 100%;
+    border-radius: 100px;
 
-            max-width: 1100px;
+    transition: width 0.3s ease;
+}
 
-            margin:
-                45px
-                auto
-                0;
 
-            display: flex;
+/* 질문 */
 
-            justify-content: center;
+.question {
+    min-height: 120px;
 
-            align-items: flex-end;
+    display: flex;
 
-            gap: 18px;
-        }
+    justify-content: center;
+    align-items: center;
 
+    font-size: 29px;
 
+    font-weight: 700;
 
-        .character {
+    line-height: 1.55;
 
-            flex: 1;
+    word-break: keep-all;
 
-            max-width: 350px;
+    margin-bottom: 50px;
+}
 
-            display: flex;
 
-            justify-content: center;
+/* YES / NO */
 
-            align-items: flex-end;
-        }
+.answer-buttons {
+    width: 100%;
 
+    display: flex;
 
+    justify-content: center;
 
-        .character img {
+    gap: 20px;
+}
 
-            display: block;
 
-            width: 100%;
+.answer-button {
+    width: 190px;
 
-            height: auto;
+    padding:
+        19px
+        20px;
 
-            object-fit: contain;
-        }
+    border:
+        2px solid
+        #ad6047;
 
+    border-radius: 50px;
 
+    background: #fffaf2;
 
-        /* 불안형 살짝 위 */
+    color: #ad6047;
 
-        .anxious {
+    font-size: 18px;
 
-            transform:
-                translateY(-5px);
-        }
+    font-weight: 800;
 
+    cursor: pointer;
 
+    transition: 0.2s;
+}
 
-        /* =========================
-           푸터
-        ========================= */
 
-        footer {
+.answer-button:hover {
+    background: #ad6047;
 
-            flex-shrink: 0;
+    color: white;
 
-            width: 100%;
+    transform: translateY(-2px);
+}
 
-            padding:
-                24px
-                5%;
 
-            background: #fffaf2;
+/* 선택했던 답 */
 
-            border-top:
-                1px solid
-                #eadfd1;
-        }
+.answer-button.selected {
+    background: #ad6047;
 
+    color: white;
+}
 
 
-        .footer-title {
+/* 이전 질문 */
 
-            font-size: 16px;
+.back-button {
+    margin-top: 28px;
 
-            font-weight: 700;
+    border: none;
 
-            margin-bottom: 6px;
-        }
+    background: transparent;
 
+    color: #8b7c73;
 
+    font-size: 13px;
 
-        .footer-text {
+    cursor: pointer;
 
-            font-size: 14px;
+    text-decoration: underline;
 
-            color: #6f635c;
-        }
+    text-underline-offset: 4px;
+}
 
 
+.back-button:hover {
+    color: #49372e;
+}
 
-        .copyright {
 
-            margin-top: 11px;
+/* =====================================
+   개인정보 입력
+===================================== */
 
-            font-size: 12px;
+.info-screen {
+    display: none;
 
-            color: #a19790;
-        }
+    width: 100%;
 
+    max-width: 520px;
 
+    margin: auto;
 
-        /* ==========================================
-           📱 모바일
-        ========================================== */
+    text-align: center;
+}
 
-        @media (max-width: 700px) {
 
+.info-small {
+    font-size: 14px;
 
-            /* 헤더 */
+    color: #ad6047;
 
-            header {
+    font-weight: 700;
 
-                height: 58px;
+    margin-bottom: 8px;
+}
 
-                padding:
-                    0
-                    18px;
-            }
 
+.info-title {
+    font-size: 32px;
 
+    font-weight: 800;
 
-            .logo {
+    margin-bottom: 10px;
+}
 
-                font-size: 17px;
-            }
 
+.info-description {
+    font-size: 14px;
 
+    color: #74675e;
 
-            .menu {
+    line-height: 1.7;
 
-                font-size: 23px;
-            }
+    margin-bottom: 30px;
+}
 
 
+.input-group {
+    width: 100%;
 
-            /* 모바일 메뉴 */
+    text-align: left;
 
-            .dropdown-menu {
+    margin-bottom: 16px;
+}
 
-                top: 38px;
 
-                right: -5px;
+.input-group label {
+    display: block;
 
-                width: 170px;
+    margin-bottom: 7px;
 
-                border-radius: 12px;
+    font-size: 13px;
 
-                padding: 7px;
-            }
+    font-weight: 700;
+}
 
 
+.input-group input {
+    width: 100%;
 
-            .dropdown-menu a {
+    height: 52px;
 
-                padding:
-                    12px
-                    13px;
+    padding: 0 16px;
 
-                font-size: 13px;
-            }
+    border:
+        1px solid
+        #d8cbbd;
 
+    border-radius: 12px;
 
+    outline: none;
 
-            /* =========================
-               메인
-            ========================= */
+    background:
+        rgba(255, 250, 242, 0.9);
 
-            .hero {
+    color: #49372e;
 
-                flex: 1;
+    font-size: 15px;
+}
 
-                min-height: 0;
 
-                justify-content: center;
+.input-group input:focus {
+    border-color: #ad6047;
+}
 
-                padding:
-                    55px
-                    12px
-                    35px;
 
-                background-size: cover;
+/* 개인정보 안내 */
 
-                background-position:
-                    center center;
-            }
+.privacy-box {
+    margin-top: 24px;
 
+    padding: 16px;
 
+    background:
+        rgba(243, 233, 220, 0.7);
 
-            /* =========================
-               제목
-            ========================= */
+    border-radius: 12px;
 
-            .small-title {
+    text-align: left;
 
-                font-size: 18px;
+    font-size: 11px;
 
-                margin-bottom: 5px;
-            }
+    line-height: 1.7;
 
+    color: #7d7067;
+}
 
 
-            .main-title {
+.submit-button {
+    width: 100%;
 
-                font-size: 34px;
+    margin-top: 20px;
 
-                line-height: 1.15;
+    padding: 16px;
 
-                margin-bottom: 17px;
-            }
+    border: none;
 
+    border-radius: 50px;
 
+    background: #ad6047;
 
-            /* =========================
-               설명
-            ========================= */
+    color: white;
 
-            .description {
+    font-size: 16px;
 
-                font-size: 14px;
+    font-weight: 700;
 
-                line-height: 1.7;
-            }
+    cursor: pointer;
+}
 
 
+.submit-button:hover {
+    background: #995039;
+}
 
-            /* =========================
-               버튼
-            ========================= */
 
-            .start-button {
+.info-back-button {
+    margin-top: 18px;
 
-                margin-top: 22px;
+    border: none;
 
-                padding:
-                    14px
-                    31px;
+    background: transparent;
 
-                font-size: 15px;
-            }
+    color: #8b7c73;
 
+    font-size: 12px;
 
+    cursor: pointer;
 
-            /* =========================
-               캐릭터
-            ========================= */
+    text-decoration: underline;
+}
 
-            .characters {
 
-                margin-top: 55px;
+/* 오류 문구 */
 
-                gap: 3px;
+.error-message {
+    display: none;
 
-                align-items: flex-end;
-            }
+    margin-top: 13px;
 
+    color: #b44d45;
 
+    font-size: 12px;
 
-            .character {
+    font-weight: 700;
+}
 
-                width: 33.333%;
 
-                min-width: 0;
+/* =====================================
+   완료 화면
+===================================== */
 
-                flex: 1;
-            }
+.complete-screen {
+    display: none;
 
+    width: 100%;
 
+    min-height: 430px;
 
-            .character img {
+    position: relative;
 
-                width: 100%;
+    align-items: center;
+    justify-content: center;
 
-                height: auto;
-            }
+    text-align: center;
+}
 
 
+.complete-inner {
+    transform: translateY(-10px);
+}
 
-            .anxious {
 
-                transform:
-                    translateY(-4px);
-            }
+.complete-icon {
+    font-size: 34px;
 
+    margin-bottom: 17px;
+}
 
 
-            /* =========================
-               푸터
-            ========================= */
+.complete-title {
+    font-size:
+        clamp(30px, 5vw, 44px);
 
-            footer {
+    font-weight: 800;
 
-                padding:
-                    22px
-                    18px
-                    20px;
-            }
+    line-height: 1.4;
+}
 
 
+.complete-text {
+    margin-top: 15px;
 
-            .footer-title {
+    font-size: 14px;
 
-                font-size: 13px;
-            }
+    line-height: 1.8;
 
+    color: #7c6e65;
+}
 
 
-            .footer-text {
+/* 오른쪽 아래 아주 작은 결과보기 */
 
-                font-size: 12px;
-            }
+.secret-result-button {
+    position: absolute;
 
+    right: 3px;
+    bottom: 0;
 
+    border: none;
 
-            .copyright {
+    background: transparent;
 
-                margin-top: 8px;
+    color: #c5bbb4;
 
-                font-size: 10px;
-            }
+    font-size: 8px;
 
-        }
+    cursor: pointer;
 
+    opacity: 0.65;
+}
 
 
-        /* ==========================================
-           📱 작은 휴대폰
-        ========================================== */
+.secret-result-button:hover {
+    opacity: 1;
 
-        @media (max-width: 380px) {
+    color: #7d7067;
+}
 
 
-            .hero {
+/* =====================================
+   결과 확인 창
+===================================== */
 
-                padding:
-                    40px
-                    10px
-                    25px;
-            }
+.result-modal {
+    display: none;
 
+    position: fixed;
 
+    left: 0;
+    top: 0;
 
-            .main-title {
+    width: 100%;
+    height: 100%;
 
-                font-size: 30px;
-            }
+    padding: 20px;
 
+    background:
+        rgba(60, 45, 35, 0.55);
 
+    z-index: 3000;
 
-            .characters {
+    align-items: center;
+    justify-content: center;
+}
 
-                margin-top: 40px;
-            }
 
-        }
+.result-card {
+    width: 100%;
 
+    max-width: 480px;
 
+    max-height: 90vh;
 
-        /* ==========================================
-           📱 세로가 짧은 휴대폰
-        ========================================== */
+    overflow-y: auto;
 
-        @media
-        (max-width: 700px)
-        and (max-height: 700px) {
+    background: #fffaf2;
 
+    border-radius: 20px;
 
-            .hero {
+    padding: 28px;
 
-                padding-top: 30px;
+    box-shadow:
+        0 15px 50px
+        rgba(0, 0, 0, 0.2);
+}
 
-                padding-bottom: 20px;
-            }
 
+.result-card-title {
+    font-size: 22px;
 
+    font-weight: 800;
 
-            .characters {
+    margin-bottom: 22px;
+}
 
-                margin-top: 30px;
-            }
 
+.person-data {
+    padding-bottom: 20px;
 
+    border-bottom:
+        1px solid
+        #eadfd1;
 
-            .start-button {
+    font-size: 13px;
 
-                margin-top: 15px;
-            }
+    line-height: 2;
 
-        }
+    text-align: left;
+}
 
 
-    </style>
+.result-main {
+    margin-top: 22px;
+
+    text-align: center;
+}
+
+
+.result-label {
+    font-size: 12px;
+
+    color: #8a7467;
+}
+
+
+.result-name {
+    margin-top: 5px;
+
+    color: #ad6047;
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+
+.score-list {
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #f3e9dc;
+
+    line-height: 2;
+
+    font-size: 13px;
+}
+
+
+.answer-history {
+    margin-top: 20px;
+
+    text-align: left;
+
+    font-size: 12px;
+
+    line-height: 1.9;
+
+    color: #71645c;
+}
+
+
+.close-result {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #49372e;
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   푸터
+========================= */
+
+footer {
+    flex-shrink: 0;
+
+    width: 100%;
+
+    padding:
+        24px
+        5%;
+
+    background: #fffaf2;
+
+    border-top:
+        1px solid
+        #eadfd1;
+}
+
+
+.footer-title {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-bottom: 6px;
+}
+
+
+.footer-text {
+    font-size: 14px;
+
+    color: #6f635c;
+}
+
+
+.copyright {
+    margin-top: 11px;
+
+    font-size: 12px;
+
+    color: #a19790;
+}
+
+
+/* =====================================
+   모바일
+===================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        height: 58px;
+
+        padding:
+            0
+            18px;
+    }
+
+
+    .logo {
+        font-size: 17px;
+    }
+
+
+    .menu {
+        font-size: 23px;
+    }
+
+
+    .dropdown-menu {
+        top: 38px;
+
+        right: -5px;
+
+        width: 170px;
+
+        border-radius: 12px;
+
+        padding: 7px;
+    }
+
+
+    .dropdown-menu a {
+        padding:
+            12px
+            13px;
+
+        font-size: 13px;
+    }
+
+
+    .hero {
+        flex: 1;
+
+        min-height: 0;
+
+        justify-content: center;
+
+        padding:
+            55px
+            12px
+            35px;
+
+        background-size: cover;
+
+        background-position:
+            center center;
+    }
+
+
+    .small-title {
+        font-size: 18px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .main-title {
+        font-size: 34px;
+
+        line-height: 1.15;
+
+        margin-bottom: 17px;
+    }
+
+
+    .description {
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .start-button {
+        margin-top: 22px;
+
+        padding:
+            14px
+            31px;
+
+        font-size: 15px;
+    }
+
+
+    /* 캐릭터 */
+
+    .characters {
+        margin-top: 55px;
+
+        gap: 3px;
+    }
+
+
+    .character {
+        width: 33.333%;
+
+        min-width: 0;
+
+        flex: 1;
+    }
+
+
+    .character img {
+        width: 100%;
+
+        height: auto;
+    }
+
+
+    .anxious {
+        transform:
+            translateY(-4px);
+    }
+
+
+    /* 질문 */
+
+    .quiz-screen {
+        padding:
+            10px
+            15px
+            25px;
+    }
+
+
+    .question-count {
+        font-size: 13px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .progress {
+        max-width: 320px;
+
+        height: 6px;
+
+        margin-bottom: 45px;
+    }
+
+
+    .question {
+        min-height: 130px;
+
+        font-size: 22px;
+
+        line-height: 1.55;
+
+        margin-bottom: 45px;
+    }
+
+
+    .answer-buttons {
+        gap: 12px;
+    }
+
+
+    .answer-button {
+        width: 135px;
+
+        padding:
+            16px
+            10px;
+
+        font-size: 16px;
+    }
+
+
+    /* 개인정보 */
+
+    .info-screen {
+        padding:
+            10px
+            15px
+            25px;
+    }
+
+
+    .info-title {
+        font-size: 27px;
+    }
+
+
+    .info-description {
+        font-size: 13px;
+
+        margin-bottom: 25px;
+    }
+
+
+    .input-group input {
+        height: 49px;
+
+        font-size: 14px;
+    }
+
+
+    .privacy-box {
+        font-size: 10px;
+    }
+
+
+    /* 완료 */
+
+    .complete-screen {
+        min-height: 380px;
+    }
+
+
+    .complete-title {
+        font-size: 30px;
+    }
+
+
+    .complete-text {
+        font-size: 13px;
+    }
+
+
+    .secret-result-button {
+        right: 5px;
+
+        font-size: 7px;
+    }
+
+
+    /* 결과 */
+
+    .result-card {
+        padding: 23px 20px;
+    }
+
+
+    .result-card-title {
+        font-size: 19px;
+    }
+
+
+    .result-name {
+        font-size: 28px;
+    }
+
+
+    /* 푸터 */
+
+    footer {
+        padding:
+            22px
+            18px
+            20px;
+    }
+
+
+    .footer-title {
+        font-size: 13px;
+    }
+
+
+    .footer-text {
+        font-size: 12px;
+    }
+
+
+    .copyright {
+        margin-top: 8px;
+
+        font-size: 10px;
+    }
+
+}
+
+
+/* 작은 휴대폰 */
+
+@media (max-width: 380px) {
+
+    .hero {
+        padding:
+            40px
+            10px
+            25px;
+    }
+
+
+    .main-title {
+        font-size: 30px;
+    }
+
+
+    .characters {
+        margin-top: 40px;
+    }
+
+
+    .question {
+        font-size: 20px;
+    }
+
+
+    .answer-button {
+        width: 125px;
+    }
+
+}
+
+
+/* 세로가 짧은 휴대폰 */
+
+@media
+(max-width: 700px)
+and (max-height: 700px) {
+
+    .hero {
+        padding-top: 30px;
+
+        padding-bottom: 20px;
+    }
+
+
+    .characters {
+        margin-top: 30px;
+    }
+
+
+    .start-button {
+        margin-top: 15px;
+    }
+
+
+    .progress {
+        margin-bottom: 25px;
+    }
+
+
+    .question {
+        min-height: 90px;
+
+        margin-bottom: 25px;
+    }
+
+}
+
+</style>
 
 </head>
-
 
 
 <body>
@@ -777,223 +1338,154 @@
 <div class="page">
 
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+<!-- =========================
+     HEADER
+========================== -->
 
-    <header>
-
-
-        <!-- 왼쪽 Archive LAB -->
-
-        <a
-            class="logo"
-            href="index.html">
-
-            📖 Archive LAB
-
-        </a>
+<header>
 
 
+    <a
+        class="logo"
+        href="index.html">
 
-        <!-- 오른쪽 메뉴 -->
+        Archive LAB
 
-        <div class="menu-wrap">
-
-
-            <div
-                class="menu"
-                onclick="toggleMenu(event)">
-
-                ☰
-
-            </div>
+    </a>
 
 
-
-            <!-- 펼쳐지는 메뉴 -->
-
-            <div
-                class="dropdown-menu"
-                id="dropdownMenu">
+    <div class="menu-wrap">
 
 
-                <a href="index.html">
+        <div
+            class="menu"
+            onclick="toggleMenu(event)">
 
-                     - Home
+            ☰
 
-                </a>
-
-
-                <a href="index.html">
-
-                     - Introduction
-
-                </a>
+        </div>
 
 
-                <a href="about.html">
-
-                    - Projects
-
-                </a>
+        <div
+            class="dropdown-menu"
+            id="dropdownMenu">
 
 
-                <a href="about.html">
-
-                    - Community
-
-                </a>
+            <a href="index.html">
+                - Home
+            </a>
 
 
-            </div>
+            <a href="index.html">
+                - Introduction
+            </a>
+
+
+            <a href="about.html">
+                - Projects
+            </a>
+
+
+            <a href="about.html">
+                - Community
+            </a>
 
 
         </div>
 
 
-    </header>
+    </div>
+
+
+</header>
 
 
 
-    <!-- =========================
-         MAIN
-    ========================== -->
+<!-- =========================
+     MAIN
+========================== -->
 
-    <main class="hero">
-
-
-        <!-- 제목 -->
-
-        <section class="intro">
+<main class="hero">
 
 
-            <div class="small-title">
+<!-- =========================
+     1. 시작 화면
+========================== -->
 
-                나의 성향은 뭘까?
-
-            </div>
-
-
-
-            <h1 class="main-title">
-
-                성인애착유형
-                <span>테스트</span>
-
-            </h1>
+<div id="startScreen">
 
 
-
-            <div class="description">
-
-                몇 가지 질문에 답하며<br>
-
-                나의 관계 속 모습을 알아보세요.
-
-            </div>
+    <section class="intro">
 
 
+        <div class="small-title">
 
-            <button
-                class="start-button"
-                onclick="startTest()">
-
-                테스트 시작하기 →
-
-            </button>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             캐릭터
-        ========================== -->
-
-        <section class="characters">
-
-
-            <!-- 안정형 -->
-
-            <div class="character secure">
-
-                <img
-                    src="images/secure.png"
-                    alt="안정형">
-
-            </div>
-
-
-
-            <!-- 불안형 -->
-
-            <div class="character anxious">
-
-                <img
-                    src="images/anxious.png"
-                    alt="불안형">
-
-            </div>
-
-
-
-            <!-- 회피형 -->
-
-            <div class="character avoidant">
-
-                <img
-                    src="images/avoidant.png"
-                    alt="회피형">
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-
-        <div class="footer-title">
-
-            청년 프로젝트 & 아카이브 연구소
+            나의 성향은 뭘까?
 
         </div>
 
 
+        <h1 class="main-title">
 
-        <div class="footer-text">
+            성인애착유형
+            <span>테스트</span>
 
-            기록은 남기고, 이야기는 이어지게.
-
-        </div>
-
+        </h1>
 
 
-        <div class="copyright">
+        <div class="description">
 
-            © 2026 Archive LAB. All rights reserved.
+            몇 가지 질문에 답하며<br>
 
-        </div>
-
-        <div class="copyright">
-
-            Instagram ㆍ archive_lab_sh
+            나의 관계 속 모습을 알아보세요.
 
         </div>
 
 
-    </footer>
+        <button
+            class="start-button"
+            onclick="startTest()">
+
+            테스트 시작하기 →
+
+        </button>
+
+
+    </section>
+
+
+
+    <section class="characters">
+
+
+        <div class="character secure">
+
+            <img
+                src="images/secure.png"
+                alt="안정형">
+
+        </div>
+
+
+        <div class="character anxious">
+
+            <img
+                src="images/anxious.png"
+                alt="불안형">
+
+        </div>
+
+
+        <div class="character avoidant">
+
+            <img
+                src="images/avoidant.png"
+                alt="회피형">
+
+        </div>
+
+
+    </section>
 
 
 </div>
@@ -1001,76 +1493,1380 @@
 
 
 <!-- =========================
-     기능
+     2. 질문 화면
 ========================== -->
+
+<section
+    class="quiz-screen"
+    id="quizScreen">
+
+
+    <div
+        class="question-count"
+        id="questionCount">
+
+        01 / 06
+
+    </div>
+
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            id="progressBar">
+        </div>
+
+    </div>
+
+
+    <div
+        class="question"
+        id="questionText">
+
+    </div>
+
+
+    <div class="answer-buttons">
+
+
+        <button
+            class="answer-button"
+            id="yesButton"
+            onclick="answerQuestion(true)">
+
+            YES
+
+        </button>
+
+
+        <button
+            class="answer-button"
+            id="noButton"
+            onclick="answerQuestion(false)">
+
+            NO
+
+        </button>
+
+
+    </div>
+
+
+    <button
+        class="back-button"
+        id="backButton"
+        onclick="previousQuestion()">
+
+        ← 이전 질문
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================
+     3. 개인정보 입력
+========================== -->
+
+<section
+    class="info-screen"
+    id="infoScreen">
+
+
+    <div class="info-small">
+
+        TEST COMPLETE
+
+    </div>
+
+
+    <div class="info-title">
+
+        마지막으로 알려주세요
+
+    </div>
+
+
+    <div class="info-description">
+
+        테스트 결과 안내를 위해<br>
+        아래 정보를 입력해주세요.
+
+    </div>
+
+
+
+    <div class="input-group">
+
+        <label for="userName">
+            이름
+        </label>
+
+        <input
+            type="text"
+            id="userName"
+            placeholder="이름을 입력해주세요">
+
+    </div>
+
+
+
+    <div class="input-group">
+
+        <label for="userPhone">
+            휴대폰 번호
+        </label>
+
+        <input
+            type="tel"
+            id="userPhone"
+            inputmode="numeric"
+            placeholder="010-0000-0000">
+
+    </div>
+
+
+
+    <div class="input-group">
+
+        <label for="userArea">
+            사는 곳 (동)
+        </label>
+
+        <input
+            type="text"
+            id="userArea"
+            placeholder="예: 조례동">
+
+    </div>
+
+
+
+    <div class="privacy-box">
+
+        <strong>개인정보 수집 및 이용 안내</strong>
+
+        <br><br>
+
+        Archive LAB은 테스트 참여 확인 및
+        결과 안내를 위해 이름, 휴대폰 번호,
+        거주지역(동)을 수집합니다.
+
+        <br><br>
+
+        입력한 개인정보는 테스트 운영 및
+        결과 안내 목적으로만 이용되며,
+        프로젝트 운영 종료 후 삭제됩니다.
+
+        <br><br>
+
+        개인정보를 입력하고 제출하는 경우
+        위 개인정보 수집 및 이용 내용에
+        동의한 것으로 봅니다.
+
+    </div>
+
+
+
+    <div
+        class="error-message"
+        id="errorMessage">
+
+        이름, 휴대폰 번호, 사는 곳을 모두 입력해주세요.
+
+    </div>
+
+
+
+    <button
+        class="submit-button"
+        onclick="submitTest()">
+
+        제출하기
+
+    </button>
+
+
+
+    <button
+        class="info-back-button"
+        onclick="backToLastQuestion()">
+
+        ← 마지막 질문으로 돌아가기
+
+    </button>
+
+
+</section>
+
+
+
+<!-- =========================
+     4. 완료 화면
+========================== -->
+
+<section
+    class="complete-screen"
+    id="completeScreen">
+
+
+    <div class="complete-inner">
+
+
+        <div class="complete-icon">
+
+            ✓
+
+        </div>
+
+
+        <div class="complete-title">
+
+            참여해주셔서<br>
+            감사합니다.
+
+        </div>
+
+
+        <div class="complete-text">
+
+            테스트가 정상적으로 완료되었습니다.<br>
+            결과는 추후 안내드리겠습니다.
+
+        </div>
+
+
+    </div>
+
+
+
+    <button
+        class="secret-result-button"
+        onclick="openResult()">
+
+        결과보기
+
+    </button>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+
+    <div class="footer-title">
+
+        청년 프로젝트 & 아카이브 연구소
+
+    </div>
+
+
+    <div class="footer-text">
+
+        기록은 남기고, 이야기는 이어지게.
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 Archive LAB. All rights reserved.
+
+    </div>
+
+
+    <div class="copyright">
+
+        Instagram ㆍ archive_lab_sh
+
+    </div>
+
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =========================
+     관리자용 결과 확인 창
+========================== -->
+
+<div
+    class="result-modal"
+    id="resultModal">
+
+
+    <div class="result-card">
+
+
+        <div class="result-card-title">
+
+            테스트 결과 확인
+
+        </div>
+
+
+
+        <div
+            class="person-data"
+            id="personData">
+
+        </div>
+
+
+
+        <div class="result-main">
+
+
+            <div class="result-label">
+
+                내부 계산 결과
+
+            </div>
+
+
+            <div
+                class="result-name"
+                id="resultName">
+
+            </div>
+
+
+            <div
+                class="score-list"
+                id="scoreList">
+
+            </div>
+
+
+        </div>
+
+
+
+        <div
+            class="answer-history"
+            id="answerHistory">
+
+        </div>
+
+
+
+        <button
+            class="close-result"
+            onclick="closeResult()">
+
+            결과 닫기
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
 
 <script>
 
 
-    /* 테스트 시작 버튼 */
+/* =====================================
+   질문
 
-    function startTest() {
+   secure   = 안정
+   anxious  = 불안
+   avoidant = 회피
+===================================== */
 
-        alert(
-            "테스트 페이지를 준비 중입니다!"
-        );
+const questions = [
+
+    {
+        text:
+            "가까운 사람에게 내 감정을 솔직하게 표현하는 편이다.",
+
+        type:
+            "secure"
+    },
+
+
+    {
+        text:
+            "연락이 평소보다 늦으면 상대방의 마음이 변한 건 아닌지 신경 쓰인다.",
+
+        type:
+            "anxious"
+    },
+
+
+    {
+        text:
+            "누군가와 지나치게 가까워지면 오히려 거리를 두고 싶을 때가 있다.",
+
+        type:
+            "avoidant"
+    },
+
+
+    {
+        text:
+            "가까운 사람과 떨어져 있어도 우리 관계에 대해 크게 불안하지 않다.",
+
+        type:
+            "secure"
+    },
+
+
+    {
+        text:
+            "상대방의 말투나 작은 행동 변화에도 쉽게 의미를 부여하는 편이다.",
+
+        type:
+            "anxious"
+    },
+
+
+    {
+        text:
+            "힘든 일이 있어도 다른 사람에게 기대기보다 혼자 해결하는 편이 편하다.",
+
+        type:
+            "avoidant"
+    }
+
+];
+
+
+
+/* =====================================
+   테스트 데이터
+===================================== */
+
+let currentQuestion = 0;
+
+
+/*
+   true  = YES
+   false = NO
+   null  = 아직 답하지 않음
+*/
+
+let answers = [
+
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+
+];
+
+
+let participant = {
+
+    name: "",
+
+    phone: "",
+
+    area: ""
+
+};
+
+
+let finalScores = {
+
+    secure: 0,
+
+    anxious: 0,
+
+    avoidant: 0
+
+};
+
+
+let finalResult = "";
+
+
+
+/* =====================================
+   테스트 시작
+===================================== */
+
+function startTest() {
+
+
+    currentQuestion = 0;
+
+
+    answers = [
+
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+
+    ];
+
+
+    hideAllScreens();
+
+
+    document
+        .getElementById("quizScreen")
+        .style.display =
+        "block";
+
+
+    showQuestion();
+
+}
+
+
+
+/* =====================================
+   모든 화면 숨기기
+===================================== */
+
+function hideAllScreens() {
+
+
+    document
+        .getElementById("startScreen")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("quizScreen")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("infoScreen")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("completeScreen")
+        .style.display =
+        "none";
+
+}
+
+
+
+/* =====================================
+   질문 표시
+===================================== */
+
+function showQuestion() {
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const number =
+        currentQuestion + 1;
+
+
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        question.text;
+
+
+
+    document
+        .getElementById("questionCount")
+        .textContent =
+        String(number)
+        .padStart(2, "0")
+        +
+        " / 06";
+
+
+
+    const progress =
+        (number / questions.length)
+        *
+        100;
+
+
+
+    document
+        .getElementById("progressBar")
+        .style.width =
+        progress + "%";
+
+
+
+    /*
+       첫 질문에서는 이전 버튼 숨김
+    */
+
+    if (
+        currentQuestion
+        ===
+        0
+    ) {
+
+        document
+            .getElementById("backButton")
+            .style.visibility =
+            "hidden";
+
+    }
+
+    else {
+
+        document
+            .getElementById("backButton")
+            .style.visibility =
+            "visible";
 
     }
 
 
 
-    /* 오른쪽 메뉴 열기 / 닫기 */
+    updateSelectedAnswer();
 
-    function toggleMenu(event) {
+}
 
-        event.stopPropagation();
 
-        const menu =
-            document.getElementById(
-                "dropdownMenu"
-            );
 
-        menu.classList.toggle(
-            "show"
+/* =====================================
+   이전에 선택한 답 표시
+===================================== */
+
+function updateSelectedAnswer() {
+
+
+    const yesButton =
+        document
+        .getElementById(
+            "yesButton"
         );
+
+
+    const noButton =
+        document
+        .getElementById(
+            "noButton"
+        );
+
+
+    yesButton
+        .classList
+        .remove(
+            "selected"
+        );
+
+
+    noButton
+        .classList
+        .remove(
+            "selected"
+        );
+
+
+
+    if (
+        answers[currentQuestion]
+        ===
+        true
+    ) {
+
+        yesButton
+            .classList
+            .add(
+                "selected"
+            );
 
     }
 
 
 
-    /* 메뉴 바깥을 누르면 닫기 */
+    if (
+        answers[currentQuestion]
+        ===
+        false
+    ) {
 
-    document.addEventListener(
-        "click",
-        function () {
-
-            const menu =
-                document.getElementById(
-                    "dropdownMenu"
-                );
-
-            menu.classList.remove(
-                "show"
+        noButton
+            .classList
+            .add(
+                "selected"
             );
+
+    }
+
+}
+
+
+
+/* =====================================
+   YES / NO 선택
+===================================== */
+
+function answerQuestion(answer) {
+
+
+    /*
+       현재 문제 답 저장
+    */
+
+    answers[currentQuestion] =
+        answer;
+
+
+
+    /*
+       마지막 문제가 아니면
+       다음 문제
+    */
+
+    if (
+        currentQuestion
+        <
+        questions.length - 1
+    ) {
+
+
+        currentQuestion++;
+
+
+        showQuestion();
+
+    }
+
+
+    /*
+       마지막 문제라면
+       개인정보 화면
+    */
+
+    else {
+
+
+        calculateResult();
+
+
+        hideAllScreens();
+
+
+        document
+            .getElementById("infoScreen")
+            .style.display =
+            "block";
+
+    }
+
+}
+
+
+
+/* =====================================
+   이전 질문
+===================================== */
+
+function previousQuestion() {
+
+
+    if (
+        currentQuestion
+        >
+        0
+    ) {
+
+
+        currentQuestion--;
+
+
+        showQuestion();
+
+    }
+
+}
+
+
+
+/* =====================================
+   개인정보 화면에서
+   마지막 질문으로 돌아가기
+===================================== */
+
+function backToLastQuestion() {
+
+
+    currentQuestion =
+        questions.length - 1;
+
+
+    hideAllScreens();
+
+
+    document
+        .getElementById("quizScreen")
+        .style.display =
+        "block";
+
+
+    showQuestion();
+
+}
+
+
+
+/* =====================================
+   결과 계산
+
+   YES인 질문만 해당 유형 +1
+===================================== */
+
+function calculateResult() {
+
+
+    finalScores = {
+
+        secure: 0,
+
+        anxious: 0,
+
+        avoidant: 0
+
+    };
+
+
+
+    questions.forEach(
+        function (
+            question,
+            index
+        ) {
+
+
+            if (
+                answers[index]
+                ===
+                true
+            ) {
+
+
+                finalScores[
+                    question.type
+                ]++;
+
+            }
 
         }
     );
 
 
 
-    /* 메뉴 안을 눌렀을 때
-       클릭 이벤트가 꼬이지 않도록 처리 */
+    const maxScore =
+        Math.max(
+
+            finalScores.secure,
+
+            finalScores.anxious,
+
+            finalScores.avoidant
+
+        );
+
+
+
+    const resultTypes = [];
+
+
+    if (
+        finalScores.secure
+        ===
+        maxScore
+    ) {
+
+        resultTypes.push(
+            "안정"
+        );
+
+    }
+
+
+    if (
+        finalScores.anxious
+        ===
+        maxScore
+    ) {
+
+        resultTypes.push(
+            "불안"
+        );
+
+    }
+
+
+    if (
+        finalScores.avoidant
+        ===
+        maxScore
+    ) {
+
+        resultTypes.push(
+            "회피"
+        );
+
+    }
+
+
+
+    if (
+        resultTypes.length
+        ===
+        1
+    ) {
+
+
+        finalResult =
+            resultTypes[0]
+            +
+            "형";
+
+    }
+
+    else {
+
+
+        finalResult =
+            resultTypes.join(" · ")
+            +
+            " 혼합형";
+
+    }
+
+}
+
+
+
+/* =====================================
+   제출
+===================================== */
+
+function submitTest() {
+
+
+    const name =
+        document
+        .getElementById(
+            "userName"
+        )
+        .value
+        .trim();
+
+
+    const phone =
+        document
+        .getElementById(
+            "userPhone"
+        )
+        .value
+        .trim();
+
+
+    const area =
+        document
+        .getElementById(
+            "userArea"
+        )
+        .value
+        .trim();
+
+
+
+    /*
+       빈칸 확인
+    */
+
+    if (
+        name === ""
+        ||
+        phone === ""
+        ||
+        area === ""
+    ) {
+
+
+        document
+            .getElementById(
+                "errorMessage"
+            )
+            .style.display =
+            "block";
+
+
+        return;
+
+    }
+
+
 
     document
-        .getElementById("dropdownMenu")
-        .addEventListener(
-            "click",
-            function (event) {
+        .getElementById(
+            "errorMessage"
+        )
+        .style.display =
+        "none";
 
-                event.stopPropagation();
+
+
+    /*
+       참여자 정보 저장
+    */
+
+    participant = {
+
+        name: name,
+
+        phone: phone,
+
+        area: area
+
+    };
+
+
+
+    /*
+       혹시 답 수정 후 제출했을 경우
+       결과 다시 계산
+    */
+
+    calculateResult();
+
+
+
+    /*
+       완료 화면
+    */
+
+    hideAllScreens();
+
+
+    document
+        .getElementById(
+            "completeScreen"
+        )
+        .style.display =
+        "flex";
+
+}
+
+
+
+/* =====================================
+   결과보기
+===================================== */
+
+function openResult() {
+
+
+    /*
+       참여자 정보
+    */
+
+    document
+        .getElementById(
+            "personData"
+        )
+        .innerHTML =
+
+        "<strong>이름</strong> : "
+        +
+        escapeHtml(
+            participant.name
+        )
+        +
+        "<br>"
+        +
+        "<strong>휴대폰</strong> : "
+        +
+        escapeHtml(
+            participant.phone
+        )
+        +
+        "<br>"
+        +
+        "<strong>사는 곳</strong> : "
+        +
+        escapeHtml(
+            participant.area
+        );
+
+
+
+    /*
+       결과
+    */
+
+    document
+        .getElementById(
+            "resultName"
+        )
+        .textContent =
+        finalResult;
+
+
+
+    /*
+       점수
+    */
+
+    document
+        .getElementById(
+            "scoreList"
+        )
+        .innerHTML =
+
+        "안정형 "
+        +
+        finalScores.secure
+        +
+        " / 2"
+        +
+        "<br>"
+        +
+        "불안형 "
+        +
+        finalScores.anxious
+        +
+        " / 2"
+        +
+        "<br>"
+        +
+        "회피형 "
+        +
+        finalScores.avoidant
+        +
+        " / 2";
+
+
+
+    /*
+       실제 응답 기록
+    */
+
+    let history =
+        "<strong>응답 기록</strong><br><br>";
+
+
+
+    answers.forEach(
+        function (
+            answer,
+            index
+        ) {
+
+
+            history +=
+
+                "Q"
+                +
+                (index + 1)
+                +
+                ". "
+                +
+                (
+                    answer
+                    ===
+                    true
+                    ?
+                    "YES"
+                    :
+                    "NO"
+                )
+                +
+                "<br>";
+
+        }
+    );
+
+
+
+    document
+        .getElementById(
+            "answerHistory"
+        )
+        .innerHTML =
+        history;
+
+
+
+    /*
+       창 열기
+    */
+
+    document
+        .getElementById(
+            "resultModal"
+        )
+        .style.display =
+        "flex";
+
+}
+
+
+
+/* =====================================
+   결과 닫기
+===================================== */
+
+function closeResult() {
+
+
+    document
+        .getElementById(
+            "resultModal"
+        )
+        .style.display =
+        "none";
+
+}
+
+
+
+/* =====================================
+   HTML 특수문자 처리
+===================================== */
+
+function escapeHtml(text) {
+
+
+    const div =
+        document
+        .createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        text;
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================
+   메뉴
+===================================== */
+
+function toggleMenu(event) {
+
+
+    event.stopPropagation();
+
+
+    const menu =
+        document
+        .getElementById(
+            "dropdownMenu"
+        );
+
+
+    menu
+        .classList
+        .toggle(
+            "show"
+        );
+
+}
+
+
+
+/* 메뉴 바깥 클릭 */
+
+document
+    .addEventListener(
+        "click",
+        function () {
+
+
+            document
+                .getElementById(
+                    "dropdownMenu"
+                )
+                .classList
+                .remove(
+                    "show"
+                );
+
+        }
+    );
+
+
+
+/* 메뉴 내부 클릭 */
+
+document
+    .getElementById(
+        "dropdownMenu"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+
+            event.stopPropagation();
+
+        }
+    );
+
+
+
+/* 결과창 바깥쪽을 누르면 닫기 */
+
+document
+    .getElementById(
+        "resultModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+
+            if (
+                event.target
+                ===
+                this
+            ) {
+
+
+                closeResult();
 
             }
-        );
+
+        }
+    );
 
 
 </script>

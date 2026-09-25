@@ -24,23 +24,26 @@
         html,
         body {
             width: 100%;
-            min-height: 100%;
         }
 
         body {
-            font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+            font-family:
+                "Malgun Gothic",
+                "Apple SD Gothic Neo",
+                sans-serif;
+
             background: #faf6ee;
             color: #49372e;
         }
 
 
         /* =========================
-           상단 헤더
+           상단 메뉴
         ========================= */
 
         header {
             width: 100%;
-            height: 78px;
+            height: 76px;
 
             display: flex;
             align-items: center;
@@ -59,64 +62,69 @@
         }
 
         .menu {
-            font-size: 27px;
+            font-size: 28px;
             cursor: pointer;
         }
 
 
         /* =========================
-           메인 화면
+           전체 메인
         ========================= */
 
         .hero {
-            position: relative;
-
             width: 100%;
-            min-height: 680px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background-image:
+                url("images/background.png");
 
-            overflow: hidden;
-
-            background-image: url("images/background.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+
+            padding:
+                60px
+                30px
+                45px;
         }
 
 
         /* =========================
-           가운데 글자
+           제목 영역
         ========================= */
 
-        .center-content {
-            position: relative;
-            z-index: 20;
+        .intro {
+            width: 100%;
+            max-width: 900px;
+
+            margin: 0 auto;
 
             text-align: center;
-
-            padding: 30px;
         }
 
         .small-title {
-            font-size: 27px;
-            margin-bottom: 8px;
+            font-size: 25px;
+
+            margin-bottom: 7px;
         }
 
         .main-title {
-            font-size: clamp(42px, 5vw, 64px);
-            line-height: 1.2;
+            font-size: clamp(40px, 5vw, 62px);
+
+            line-height: 1.15;
 
             font-weight: 800;
 
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .main-title span {
             color: #ad6047;
         }
+
+
+        /* =========================
+           설명
+        ========================= */
 
         .description {
             font-size: 17px;
@@ -127,13 +135,13 @@
 
 
         /* =========================
-           테스트 시작 버튼
+           시작 버튼
         ========================= */
 
         .start-button {
-            margin-top: 30px;
+            margin-top: 27px;
 
-            padding: 18px 48px;
+            padding: 17px 45px;
 
             border: none;
             border-radius: 50px;
@@ -148,7 +156,8 @@
             cursor: pointer;
 
             box-shadow:
-                0 8px 20px rgba(100, 60, 40, 0.18);
+                0 8px 20px
+                rgba(100, 60, 40, 0.18);
 
             transition: 0.2s;
         }
@@ -157,19 +166,41 @@
             transform: translateY(-3px);
 
             background: #995039;
-
-            box-shadow:
-                0 12px 25px rgba(100, 60, 40, 0.25);
         }
 
 
         /* =========================
-           캐릭터 공통
+           캐릭터 영역
         ========================= */
 
+        .characters {
+
+            width: 100%;
+            max-width: 1100px;
+
+            margin:
+                45px
+                auto
+                0;
+
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: center;
+
+            gap: 18px;
+        }
+
+
+        /* 각각의 캐릭터 */
+
         .character {
-            position: absolute;
-            z-index: 5;
+            flex: 1;
+
+            max-width: 350px;
+
+            display: flex;
+            justify-content: center;
         }
 
         .character img {
@@ -177,62 +208,40 @@
 
             width: 100%;
             height: auto;
+
+            object-fit: contain;
         }
 
 
-        /* =========================
-           PC - 안정형
-        ========================= */
-
-        .secure {
-            width: clamp(230px, 25vw, 390px);
-
-            left: 1%;
-            top: 5%;
-        }
-
-
-        /* =========================
-           PC - 불안형
-        ========================= */
+        /* 가운데 불안형을 살짝 강조 */
 
         .anxious {
-            width: clamp(230px, 25vw, 390px);
-
-            right: 1%;
-            top: 4%;
+            transform: translateY(-5px);
         }
 
 
         /* =========================
-           PC - 회피형
-        ========================= */
-
-        .avoidant {
-            width: clamp(230px, 25vw, 390px);
-
-            right: 5%;
-            bottom: 0;
-        }
-
-
-        /* =========================
-           푸터
+           하단
         ========================= */
 
         footer {
-            padding: 27px 5%;
+            width: 100%;
+
+            padding:
+                25px
+                5%;
 
             background: #fffaf2;
 
-            border-top: 1px solid #eadfd1;
+            border-top:
+                1px solid #eadfd1;
         }
 
         .footer-title {
             font-size: 16px;
             font-weight: 700;
 
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .footer-text {
@@ -250,19 +259,21 @@
         }
 
 
+
         /* =========================================
-           📱 모바일
-           700px 이하에서만 적용
+           모바일
+           배치는 PC와 동일
+           크기만 줄어듦
         ========================================= */
 
         @media (max-width: 700px) {
 
-            /* 헤더 */
-
             header {
                 height: 58px;
 
-                padding: 0 18px;
+                padding:
+                    0
+                    18px;
             }
 
             .logo {
@@ -274,50 +285,36 @@
             }
 
 
-            /* 메인 */
+            /* 메인 여백 축소 */
 
             .hero {
-                min-height: calc(100svh - 58px);
-
-                display: flex;
-                align-items: flex-start;
-                justify-content: center;
-
                 padding:
-                    48px
-                    15px
-                    185px
-                    15px;
-
-                background-size: cover;
-                background-position: center;
+                    38px
+                    12px
+                    25px;
             }
 
 
-            /* 가운데 내용 */
-
-            .center-content {
-                width: 100%;
-
-                margin: 0;
-                padding: 0 10px;
-            }
+            /* 제목 */
 
             .small-title {
                 font-size: 18px;
 
-                margin-bottom: 4px;
+                margin-bottom: 5px;
             }
 
             .main-title {
                 font-size: 34px;
-                line-height: 1.15;
 
-                margin-bottom: 13px;
+                margin-bottom: 14px;
             }
+
+
+            /* 설명 */
 
             .description {
                 font-size: 14px;
+
                 line-height: 1.6;
             }
 
@@ -325,9 +322,11 @@
             /* 버튼 */
 
             .start-button {
-                margin-top: 20px;
+                margin-top: 19px;
 
-                padding: 14px 30px;
+                padding:
+                    14px
+                    31px;
 
                 font-size: 15px;
             }
@@ -335,92 +334,100 @@
 
             /* =========================
                모바일 캐릭터
-               세 개를 아래에 모음
+
+               PC와 똑같이
+               3개를 한 줄에 배치
             ========================= */
 
-            .secure {
-                width: 145px;
+            .characters {
 
-                left: -18px;
-                top: auto;
-                bottom: 12px;
+                margin-top: 35px;
+
+                gap: 2px;
+
+                align-items: flex-end;
             }
+
+
+            .character {
+
+                width: 33.333%;
+
+                min-width: 0;
+            }
+
+
+            .character img {
+
+                width: 100%;
+
+                height: auto;
+            }
+
 
             .anxious {
-                width: 145px;
 
-                left: 50%;
-                right: auto;
-
-                top: auto;
-                bottom: 2px;
-
-                transform: translateX(-50%);
-            }
-
-            .avoidant {
-                width: 145px;
-
-                right: -18px;
-
-                top: auto;
-                bottom: 12px;
+                transform:
+                    translateY(-4px);
             }
 
 
-            /* 푸터 */
+            /* 하단 */
 
             footer {
-                padding: 15px 18px;
+
+                padding:
+                    16px
+                    18px;
             }
 
             .footer-title {
+
                 font-size: 13px;
             }
 
             .footer-text {
+
                 font-size: 12px;
             }
 
             .copyright {
+
                 margin-top: 7px;
 
                 font-size: 10px;
             }
+
         }
 
 
-        /* =========================================
-           📱 아주 작은 휴대폰
-        ========================================= */
+
+        /* =========================
+           아주 작은 휴대폰
+        ========================= */
 
         @media (max-width: 380px) {
 
             .hero {
-                padding-top: 38px;
-                padding-bottom: 165px;
+
+                padding-top: 30px;
             }
 
             .main-title {
+
                 font-size: 30px;
             }
 
-            .secure,
-            .anxious,
-            .avoidant {
-                width: 130px;
+            .characters {
+
+                margin-top: 28px;
             }
 
-            .secure {
-                left: -22px;
-            }
-
-            .avoidant {
-                right: -22px;
-            }
         }
 
+
     </style>
+
 </head>
 
 
@@ -434,11 +441,16 @@
     <header>
 
         <div class="logo">
+
             📖 Archive LAB
+
         </div>
 
+
         <div class="menu">
+
             ☰
+
         </div>
 
     </header>
@@ -452,51 +464,15 @@
     <main class="hero">
 
 
-        <!-- 안정형 -->
+        <!-- 제목 -->
 
-        <div class="character secure">
+        <section class="intro">
 
-            <img
-                src="images/secure.png"
-                alt="안정형"
-            >
-
-        </div>
-
-
-
-        <!-- 불안형 -->
-
-        <div class="character anxious">
-
-            <img
-                src="images/anxious.png"
-                alt="불안형"
-            >
-
-        </div>
-
-
-
-        <!-- 회피형 -->
-
-        <div class="character avoidant">
-
-            <img
-                src="images/avoidant.png"
-                alt="회피형"
-            >
-
-        </div>
-
-
-
-        <!-- 가운데 제목 -->
-
-        <div class="center-content">
 
             <div class="small-title">
+
                 두근두근,
+
             </div>
 
 
@@ -517,16 +493,65 @@
             </div>
 
 
+
+            <!-- 실제 버튼 -->
+
             <button
                 class="start-button"
-                onclick="startTest()"
-            >
+                onclick="startTest()">
 
                 테스트 시작하기 →
 
             </button>
 
-        </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             캐릭터 3개
+        ========================== -->
+
+        <section class="characters">
+
+
+            <!-- 안정형 -->
+
+            <div class="character secure">
+
+                <img
+                    src="images/secure.png"
+                    alt="안정형">
+
+            </div>
+
+
+
+            <!-- 불안형 -->
+
+            <div class="character anxious">
+
+                <img
+                    src="images/anxious.png"
+                    alt="불안형">
+
+            </div>
+
+
+
+            <!-- 회피형 -->
+
+            <div class="character avoidant">
+
+                <img
+                    src="images/avoidant.png"
+                    alt="회피형">
+
+            </div>
+
+
+        </section>
 
 
     </main>
@@ -539,17 +564,28 @@
 
     <footer>
 
+
         <div class="footer-title">
+
             청년 프로젝트 & 아카이브 연구소
+
         </div>
+
 
         <div class="footer-text">
+
             기록은 남기고, 이야기는 이어지게.
+
         </div>
 
+
         <div class="copyright">
-            © 2026 Archive LAB. All rights reserved.
+
+            © 2026 Archive LAB.
+            All rights reserved.
+
         </div>
+
 
     </footer>
 

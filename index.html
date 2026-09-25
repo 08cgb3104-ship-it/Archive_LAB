@@ -2,12 +2,14 @@
 <html lang="ko">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <title>Archive LAB | 성인애착유형 테스트</title>
+
 
     <style>
 
@@ -21,11 +23,13 @@
             box-sizing: border-box;
         }
 
+
         html,
         body {
             width: 100%;
             min-height: 100%;
         }
+
 
         body {
             font-family:
@@ -38,6 +42,7 @@
         }
 
 
+
         /* =========================
            전체 페이지
         ========================= */
@@ -48,6 +53,7 @@
             display: flex;
             flex-direction: column;
         }
+
 
 
         /* =========================
@@ -71,18 +77,133 @@
             border-bottom: 1px solid #eadfd1;
 
             position: relative;
+
             z-index: 100;
         }
+
+
+
+        /* =========================
+           왼쪽 Archive LAB
+        ========================= */
 
         .logo {
             font-size: 23px;
             font-weight: 800;
+
+            color: #49372e;
+
+            text-decoration: none;
+
+            cursor: pointer;
         }
+
+
+        .logo:hover {
+            opacity: 0.75;
+        }
+
+
+
+        /* =========================
+           오른쪽 햄버거 메뉴
+        ========================= */
+
+        .menu-wrap {
+            position: relative;
+        }
+
 
         .menu {
             font-size: 28px;
+
             cursor: pointer;
+
+            user-select: none;
         }
+
+
+
+        /* =========================
+           펼쳐지는 메뉴
+        ========================= */
+
+        .dropdown-menu {
+
+            position: absolute;
+
+            top: 45px;
+            right: 0;
+
+            width: 185px;
+
+            background: #fffaf2;
+
+            border:
+                1px solid
+                #eadfd1;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(80, 55, 40, 0.15);
+
+            padding: 8px;
+
+            display: none;
+
+            z-index: 1000;
+        }
+
+
+
+        /* 메뉴가 열렸을 때 */
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+
+
+        /* 메뉴 항목 */
+
+        .dropdown-menu a {
+
+            display: block;
+
+            padding:
+                13px
+                15px;
+
+            color: #49372e;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            border-radius: 9px;
+        }
+
+
+
+        .dropdown-menu a:hover {
+
+            background:
+                #f3e9dc;
+        }
+
+
+
+        /* 메뉴 사이 구분선 */
+
+        .dropdown-menu a + a {
+
+            margin-top: 3px;
+        }
+
 
 
         /* =========================
@@ -90,20 +211,27 @@
         ========================= */
 
         .hero {
+
             flex: 1;
 
             width: 100%;
 
             display: flex;
+
             flex-direction: column;
+
             justify-content: center;
+
 
             background-image:
                 url("images/background.png");
 
             background-size: cover;
+
             background-position: center;
+
             background-repeat: no-repeat;
+
 
             padding:
                 55px
@@ -112,12 +240,15 @@
         }
 
 
+
         /* =========================
            제목 영역
         ========================= */
 
         .intro {
+
             width: 100%;
+
             max-width: 900px;
 
             margin: 0 auto;
@@ -126,16 +257,24 @@
         }
 
 
+
         .small-title {
+
             font-size: 25px;
 
             margin-bottom: 7px;
         }
 
 
+
         .main-title {
+
             font-size:
-                clamp(40px, 5vw, 62px);
+                clamp(
+                    40px,
+                    5vw,
+                    62px
+                );
 
             line-height: 1.15;
 
@@ -145,9 +284,12 @@
         }
 
 
+
         .main-title span {
+
             color: #ad6047;
         }
+
 
 
         /* =========================
@@ -155,6 +297,7 @@
         ========================= */
 
         .description {
+
             font-size: 17px;
 
             line-height: 1.8;
@@ -163,11 +306,13 @@
         }
 
 
+
         /* =========================
            시작 버튼
         ========================= */
 
         .start-button {
+
             margin-top: 27px;
 
             padding:
@@ -183,24 +328,34 @@
             color: white;
 
             font-size: 18px;
+
             font-weight: 700;
 
             cursor: pointer;
 
             box-shadow:
                 0 8px 20px
-                rgba(100, 60, 40, 0.18);
+                rgba(
+                    100,
+                    60,
+                    40,
+                    0.18
+                );
 
             transition: 0.2s;
         }
 
 
+
         .start-button:hover {
+
             transform:
                 translateY(-3px);
 
-            background: #995039;
+            background:
+                #995039;
         }
+
 
 
         /* =========================
@@ -208,6 +363,7 @@
         ========================= */
 
         .characters {
+
             width: 100%;
 
             max-width: 1100px;
@@ -220,13 +376,16 @@
             display: flex;
 
             justify-content: center;
+
             align-items: flex-end;
 
             gap: 18px;
         }
 
 
+
         .character {
+
             flex: 1;
 
             max-width: 350px;
@@ -234,26 +393,33 @@
             display: flex;
 
             justify-content: center;
+
             align-items: flex-end;
         }
 
 
+
         .character img {
+
             display: block;
 
             width: 100%;
+
             height: auto;
 
             object-fit: contain;
         }
 
 
+
         /* 불안형 살짝 위 */
 
         .anxious {
+
             transform:
                 translateY(-5px);
         }
+
 
 
         /* =========================
@@ -261,6 +427,7 @@
         ========================= */
 
         footer {
+
             flex-shrink: 0;
 
             width: 100%;
@@ -272,11 +439,14 @@
             background: #fffaf2;
 
             border-top:
-                1px solid #eadfd1;
+                1px solid
+                #eadfd1;
         }
 
 
+
         .footer-title {
+
             font-size: 16px;
 
             font-weight: 700;
@@ -285,14 +455,18 @@
         }
 
 
+
         .footer-text {
+
             font-size: 14px;
 
             color: #6f635c;
         }
 
 
+
         .copyright {
+
             margin-top: 11px;
 
             font-size: 12px;
@@ -309,11 +483,10 @@
         @media (max-width: 700px) {
 
 
-            /* =========================
-               헤더
-            ========================= */
+            /* 헤더 */
 
             header {
+
                 height: 58px;
 
                 padding:
@@ -322,25 +495,55 @@
             }
 
 
+
             .logo {
+
                 font-size: 17px;
             }
 
 
+
             .menu {
+
                 font-size: 23px;
+            }
+
+
+
+            /* 모바일 메뉴 */
+
+            .dropdown-menu {
+
+                top: 38px;
+
+                right: -5px;
+
+                width: 170px;
+
+                border-radius: 12px;
+
+                padding: 7px;
+            }
+
+
+
+            .dropdown-menu a {
+
+                padding:
+                    12px
+                    13px;
+
+                font-size: 13px;
             }
 
 
 
             /* =========================
                메인
-
-               핵심:
-               남은 화면을 전부 사용
             ========================= */
 
             .hero {
+
                 flex: 1;
 
                 min-height: 0;
@@ -365,13 +568,16 @@
             ========================= */
 
             .small-title {
+
                 font-size: 18px;
 
                 margin-bottom: 5px;
             }
 
 
+
             .main-title {
+
                 font-size: 34px;
 
                 line-height: 1.15;
@@ -386,6 +592,7 @@
             ========================= */
 
             .description {
+
                 font-size: 14px;
 
                 line-height: 1.7;
@@ -398,6 +605,7 @@
             ========================= */
 
             .start-button {
+
                 margin-top: 22px;
 
                 padding:
@@ -411,11 +619,10 @@
 
             /* =========================
                캐릭터
-
-               버튼과 그림 사이 간격
             ========================= */
 
             .characters {
+
                 margin-top: 55px;
 
                 gap: 3px;
@@ -424,7 +631,9 @@
             }
 
 
+
             .character {
+
                 width: 33.333%;
 
                 min-width: 0;
@@ -433,14 +642,18 @@
             }
 
 
+
             .character img {
+
                 width: 100%;
 
                 height: auto;
             }
 
 
+
             .anxious {
+
                 transform:
                     translateY(-4px);
             }
@@ -452,6 +665,7 @@
             ========================= */
 
             footer {
+
                 padding:
                     22px
                     18px
@@ -459,17 +673,23 @@
             }
 
 
+
             .footer-title {
+
                 font-size: 13px;
             }
 
 
+
             .footer-text {
+
                 font-size: 12px;
             }
 
 
+
             .copyright {
+
                 margin-top: 8px;
 
                 font-size: 10px;
@@ -487,6 +707,7 @@
 
 
             .hero {
+
                 padding:
                     40px
                     10px
@@ -494,12 +715,16 @@
             }
 
 
+
             .main-title {
+
                 font-size: 30px;
             }
 
 
+
             .characters {
+
                 margin-top: 40px;
             }
 
@@ -508,7 +733,7 @@
 
 
         /* ==========================================
-           세로가 짧은 휴대폰
+           📱 세로가 짧은 휴대폰
         ========================================== */
 
         @media
@@ -517,18 +742,23 @@
 
 
             .hero {
+
                 padding-top: 30px;
 
                 padding-bottom: 20px;
             }
 
 
+
             .characters {
+
                 margin-top: 30px;
             }
 
 
+
             .start-button {
+
                 margin-top: 15px;
             }
 
@@ -538,6 +768,7 @@
     </style>
 
 </head>
+
 
 
 <body>
@@ -553,16 +784,70 @@
     <header>
 
 
-        <div class="logo">
+        <!-- 왼쪽 Archive LAB -->
+
+        <a
+            class="logo"
+            href="index.html">
 
             📖 Archive LAB
 
-        </div>
+        </a>
 
 
-        <div class="menu">
 
-            ☰
+        <!-- 오른쪽 메뉴 -->
+
+        <div class="menu-wrap">
+
+
+            <div
+                class="menu"
+                onclick="toggleMenu(event)">
+
+                ☰
+
+            </div>
+
+
+
+            <!-- 펼쳐지는 메뉴 -->
+
+            <div
+                class="dropdown-menu"
+                id="dropdownMenu">
+
+
+                <a href="index.html">
+
+                     - Home
+
+                </a>
+
+
+                <a href="index.html">
+
+                     - Introduction
+
+                </a>
+
+
+                <a href="about.html">
+
+                    - Projects
+
+                </a>
+
+
+                <a href="about.html">
+
+                    - Community
+
+                </a>
+
+
+            </div>
+
 
         </div>
 
@@ -686,6 +971,7 @@
         </div>
 
 
+
         <div class="footer-text">
 
             기록은 남기고, 이야기는 이어지게.
@@ -693,9 +979,16 @@
         </div>
 
 
+
         <div class="copyright">
 
             © 2026 Archive LAB. All rights reserved.
+
+        </div>
+
+        <div class="copyright">
+
+            Instagram ㆍ archive_lab_sh
 
         </div>
 
@@ -708,11 +1001,13 @@
 
 
 <!-- =========================
-     버튼 기능
+     기능
 ========================== -->
 
 <script>
 
+
+    /* 테스트 시작 버튼 */
 
     function startTest() {
 
@@ -721,6 +1016,61 @@
         );
 
     }
+
+
+
+    /* 오른쪽 메뉴 열기 / 닫기 */
+
+    function toggleMenu(event) {
+
+        event.stopPropagation();
+
+        const menu =
+            document.getElementById(
+                "dropdownMenu"
+            );
+
+        menu.classList.toggle(
+            "show"
+        );
+
+    }
+
+
+
+    /* 메뉴 바깥을 누르면 닫기 */
+
+    document.addEventListener(
+        "click",
+        function () {
+
+            const menu =
+                document.getElementById(
+                    "dropdownMenu"
+                );
+
+            menu.classList.remove(
+                "show"
+            );
+
+        }
+    );
+
+
+
+    /* 메뉴 안을 눌렀을 때
+       클릭 이벤트가 꼬이지 않도록 처리 */
+
+    document
+        .getElementById("dropdownMenu")
+        .addEventListener(
+            "click",
+            function (event) {
+
+                event.stopPropagation();
+
+            }
+        );
 
 
 </script>

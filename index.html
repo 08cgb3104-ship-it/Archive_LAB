@@ -1633,13 +1633,13 @@ and (max-height: 700px) {
     <div class="input-group">
 
         <label for="userArea">
-            사는 곳 (동)
+            나이
         </label>
 
         <input
             type="text"
             id="userArea"
-            placeholder="예: 조례동">
+            placeholder="예: 21">
 
     </div>
 
@@ -1675,7 +1675,7 @@ and (max-height: 700px) {
         class="error-message"
         id="errorMessage">
 
-        이름, 휴대폰 번호, 사는 곳을 모두 입력해주세요.
+        이름, 휴대폰 번호, 나이를 모두 입력해주세요.
 
     </div>
 
@@ -1932,7 +1932,7 @@ const questions = [
 
     {
         text:
-            "상대방의 말이나 행동에 쉽게 의미 부여를 한다. .",
+            "상대방의 말이나 행동에 쉽게 의미 부여를 한다.",
 
         type:
             "anxious"
@@ -2614,7 +2614,7 @@ function openResult() {
         +
         "<br>"
         +
-        "<strong>사는 곳</strong> : "
+        "<strong>나이</strong> : "
         +
         escapeHtml(
             participant.area

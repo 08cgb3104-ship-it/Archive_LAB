@@ -1,2877 +1,1555 @@
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Archive LAB | 성인애착유형 테스트</title>
 
-
 <style>
-
-/* =========================
-   기본 설정
-========================= */
-
+/* ===== 기본 설정 ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     min-height: 100%;
 }
 
 body {
-    font-family:
-        "Malgun Gothic",
-        "Apple SD Gothic Neo",
-        sans-serif;
-
+    font-family: "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
     background: #fffaf2;
     color: #49372e;
 }
 
-button,
-input {
+button, input {
     font-family: inherit;
 }
 
-
-/* =========================
-   전체 페이지
-========================= */
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
 
 .page {
     min-height: 100svh;
-
     display: flex;
     flex-direction: column;
 }
 
-
-/* =========================
-   헤더
-========================= */
-
+/* ===== 헤더 ===== */
 header {
     flex-shrink: 0;
-
     width: 100%;
     height: 76px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 0 5%;
-
     background: #fffaf2;
-
     border-bottom: 1px solid #eadfd1;
-
     position: relative;
     z-index: 100;
 }
 
-
 .logo {
     font-size: 23px;
     font-weight: 800;
-
     color: #49372e;
-
     text-decoration: none;
-
-    cursor: pointer;
 }
-
 
 .logo:hover {
     opacity: 0.75;
 }
 
-
-/* =========================
-   오른쪽 메뉴
-========================= */
-
+/* ===== 메뉴 ===== */
 .menu-wrap {
     position: relative;
 }
 
-
 .menu {
     font-size: 28px;
-
-    cursor: pointer;
-
     user-select: none;
+    cursor: pointer;
 }
-
 
 .dropdown-menu {
     position: absolute;
-
     top: 45px;
     right: 0;
-
     width: 185px;
-
-    background: #fffaf2;
-
-    border: 1px solid #eadfd1;
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(80, 55, 40, 0.15);
-
     padding: 8px;
-
+    background: #fffaf2;
+    border: 1px solid #eadfd1;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(80,55,40,0.15);
     display: none;
-
     z-index: 1000;
 }
-
 
 .dropdown-menu.show {
     display: block;
 }
 
-
 .dropdown-menu a {
     display: block;
-
     padding: 13px 15px;
-
     color: #49372e;
-
     text-decoration: none;
-
     font-size: 14px;
-
     font-weight: 600;
-
     border-radius: 9px;
 }
-
 
 .dropdown-menu a:hover {
     background: #f3e9dc;
 }
 
-
-.dropdown-menu a + a {
-    margin-top: 3px;
-}
-
-
-/* =========================
-   메인 영역
-========================= */
-
+/* ===== 메인 ===== */
 .hero {
     flex: 1;
-
     width: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     position: relative;
-
-    background-image:
-        url("images/background.png");
-
+    padding: 55px 30px 35px;
+    background-image: url("images/background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
-    padding:
-        55px
-        30px
-        35px;
 }
 
-
-/* =========================
-   첫 화면
-========================= */
-
+/* ===== 시작 화면 ===== */
 #startScreen {
     width: 100%;
 }
 
-
 .intro {
     width: 100%;
-
     max-width: 900px;
-
     margin: 0 auto;
-
     text-align: center;
 }
 
-
 .small-title {
     font-size: 25px;
-
     margin-bottom: 7px;
 }
 
-
 .main-title {
-    font-size:
-        clamp(40px, 5vw, 62px);
-
+    font-size: clamp(40px,5vw,62px);
     line-height: 1.15;
-
     font-weight: 800;
-
     margin-bottom: 20px;
 }
-
 
 .main-title span {
     color: #ad6047;
 }
 
-
 .description {
     font-size: 17px;
-
     line-height: 1.8;
-
     color: #74675e;
 }
 
-
-/* =========================
-   시작 버튼
-========================= */
-
 .start-button {
     margin-top: 27px;
-
-    padding:
-        17px
-        45px;
-
+    padding: 17px 45px;
     border: none;
-
     border-radius: 50px;
-
     background: #ad6047;
-
     color: white;
-
     font-size: 18px;
-
     font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 8px 20px
-        rgba(100, 60, 40, 0.18);
-
+    box-shadow: 0 8px 20px rgba(100,60,40,0.18);
     transition: 0.2s;
 }
 
-
 .start-button:hover {
     transform: translateY(-3px);
-
     background: #995039;
 }
 
-
-/* =========================
-   캐릭터
-========================= */
-
+/* ===== 캐릭터 ===== */
 .characters {
     width: 100%;
-
     max-width: 1100px;
-
-    margin:
-        45px
-        auto
-        0;
-
+    margin: 45px auto 0;
     display: flex;
-
     justify-content: center;
     align-items: flex-end;
-
     gap: 18px;
 }
 
-
 .character {
     flex: 1;
-
     max-width: 350px;
-
     display: flex;
-
     justify-content: center;
     align-items: flex-end;
 }
 
-
 .character img {
     display: block;
-
     width: 100%;
     height: auto;
-
     object-fit: contain;
 }
-
 
 .anxious {
     transform: translateY(-5px);
 }
 
-
-/* =====================================
-   질문 화면
-===================================== */
-
+/* ===== 질문 화면 ===== */
 .quiz-screen {
     display: none;
-
     width: 100%;
-
-    max-width: 720px;
-
+    max-width: 900px;
     margin: auto;
-
     text-align: center;
 }
-
 
 .question-count {
     font-size: 15px;
-
     font-weight: 700;
-
     color: #ad6047;
-
     margin-bottom: 15px;
 }
 
-
-/* 진행바 */
-
 .progress {
     width: 100%;
-
     max-width: 500px;
-
     height: 8px;
-
-    margin:
-        0
-        auto
-        55px;
-
+    margin: 0 auto 35px;
     background: #eadfd1;
-
     border-radius: 100px;
-
     overflow: hidden;
 }
 
-
 .progress-bar {
-    width: 16.66%;
-
+    width: 0%;
     height: 100%;
-
     background: #ad6047;
-
     border-radius: 100px;
-
-    transition: width 0.3s ease;
+    transition: width 0.3s;
 }
-
-
-/* 질문 */
 
 .question {
-    min-height: 120px;
-
+    min-height: 75px;
     display: flex;
-
-    justify-content: center;
     align-items: center;
-
-    font-size: 29px;
-
-    font-weight: 700;
-
-    line-height: 1.55;
-
+    justify-content: center;
+    font-size: 31px;
+    font-weight: 800;
+    line-height: 1.5;
     word-break: keep-all;
-
-    margin-bottom: 50px;
+    margin-bottom: 18px;
 }
 
+.question-line {
+    width: 55px;
+    height: 4px;
+    margin: 0 auto 38px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,#ad6047,#d4ad60);
+}
 
-/* YES / NO */
-
+/* ===== 선택 카드 ===== */
 .answer-buttons {
+    position: relative;
     width: 100%;
-
     display: flex;
-
+    align-items: stretch;
     justify-content: center;
-
     gap: 20px;
 }
 
-
-.answer-button {
-    width: 190px;
-
-    padding:
-        19px
-        20px;
-
-    border:
-        2px solid
-        #ad6047;
-
-    border-radius: 50px;
-
-    background: #fffaf2;
-
-    color: #ad6047;
-
-    font-size: 18px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
+.choice-card {
+    flex: 1;
+    min-width: 0;
+    min-height: 235px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    background: #f3ead8;
+    border: 2px solid #e3cfaa;
+    border-radius: 25px;
+    color: #49372e;
     transition: 0.2s;
 }
 
-
-.answer-button:hover {
-    background: #ad6047;
-
-    color: white;
-
-    transform: translateY(-2px);
+.choice-card:hover {
+    background: #eee0c6;
+    border-color: #ad6047;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(80,55,40,0.1);
 }
 
-
-/* 선택했던 답 */
-
-.answer-button.selected {
-    background: #ad6047;
-
-    color: white;
+.choice-card.selected {
+    background: #ead6b8;
+    border-color: #ad6047;
 }
 
-
-/* 이전 질문 */
-
-.back-button {
-    margin-top: 28px;
-
-    border: none;
-
-    background: transparent;
-
-    color: #8b7c73;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    text-decoration: underline;
-
-    text-underline-offset: 4px;
+.choice-icon {
+    font-size: 49px;
+    line-height: 1.2;
 }
 
-
-.back-button:hover {
-    color: #49372e;
-}
-
-
-/* =====================================
-   개인정보 입력
-===================================== */
-
-.info-screen {
-    display: none;
-
-    width: 100%;
-
-    max-width: 520px;
-
-    margin: auto;
-
+.choice-text {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.6;
+    word-break: keep-all;
     text-align: center;
 }
 
+.vs-badge {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #49372e;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.back-button {
+    margin-top: 30px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: #8b7c73;
+    font-size: 13px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* ===== 개인정보 입력 ===== */
+.info-screen {
+    display: none;
+    width: 100%;
+    max-width: 520px;
+    margin: auto;
+    text-align: center;
+}
 
 .info-small {
     font-size: 14px;
-
     color: #ad6047;
-
     font-weight: 700;
-
     margin-bottom: 8px;
 }
 
-
 .info-title {
     font-size: 32px;
-
     font-weight: 800;
-
     margin-bottom: 10px;
 }
 
-
 .info-description {
     font-size: 14px;
-
     color: #74675e;
-
     line-height: 1.7;
-
     margin-bottom: 30px;
 }
 
-
 .input-group {
     width: 100%;
-
     text-align: left;
-
     margin-bottom: 16px;
 }
 
-
 .input-group label {
     display: block;
-
     margin-bottom: 7px;
-
     font-size: 13px;
-
     font-weight: 700;
 }
 
-
 .input-group input {
     width: 100%;
-
     height: 52px;
-
     padding: 0 16px;
-
-    border:
-        1px solid
-        #d8cbbd;
-
+    border: 1px solid #d8cbbd;
     border-radius: 12px;
-
     outline: none;
-
-    background:
-        rgba(255, 250, 242, 0.9);
-
+    background: rgba(255,250,242,0.9);
     color: #49372e;
-
     font-size: 15px;
 }
-
 
 .input-group input:focus {
     border-color: #ad6047;
 }
 
-
-/* 개인정보 안내 */
-
 .privacy-box {
     margin-top: 24px;
-
     padding: 16px;
-
-    background:
-        rgba(243, 233, 220, 0.7);
-
+    background: rgba(243,233,220,0.7);
     border-radius: 12px;
-
     text-align: left;
-
     font-size: 11px;
-
-    line-height: 1.7;
-
+    line-height: 1.8;
     color: #7d7067;
 }
 
+.consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin-top: 16px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.consent-label input {
+    margin-top: 2px;
+    accent-color: #ad6047;
+}
 
 .submit-button {
     width: 100%;
-
     margin-top: 20px;
-
     padding: 16px;
-
     border: none;
-
     border-radius: 50px;
-
     background: #ad6047;
-
     color: white;
-
     font-size: 16px;
-
     font-weight: 700;
-
-    cursor: pointer;
 }
-
 
 .submit-button:hover {
     background: #995039;
 }
 
-
 .info-back-button {
     margin-top: 18px;
-
     border: none;
-
     background: transparent;
-
     color: #8b7c73;
-
     font-size: 12px;
-
-    cursor: pointer;
-
     text-decoration: underline;
 }
 
-
-/* 오류 문구 */
-
 .error-message {
     display: none;
-
     margin-top: 13px;
-
     color: #b44d45;
-
     font-size: 12px;
-
     font-weight: 700;
 }
 
-
-/* =====================================
-   완료 화면
-===================================== */
-
+/* ===== 완료 화면 ===== */
 .complete-screen {
     display: none;
-
     width: 100%;
-
     min-height: 430px;
-
     position: relative;
-
     align-items: center;
     justify-content: center;
-
     text-align: center;
 }
-
 
 .complete-inner {
     transform: translateY(-10px);
 }
 
-
 .complete-icon {
     font-size: 34px;
-
     margin-bottom: 17px;
 }
 
-
 .complete-title {
-    font-size:
-        clamp(30px, 5vw, 44px);
-
+    font-size: clamp(30px,5vw,44px);
     font-weight: 800;
-
     line-height: 1.4;
 }
 
-
 .complete-text {
     margin-top: 15px;
-
     font-size: 14px;
-
     line-height: 1.8;
-
     color: #7c6e65;
 }
 
-
-/* 오른쪽 아래 아주 작은 결과보기 */
-
 .secret-result-button {
     position: absolute;
-
     right: 3px;
     bottom: 0;
-
     border: none;
-
     background: transparent;
-
-    color: #000000;
-
+    color: #000;
     font-size: 8px;
-
-    cursor: pointer;
-
     opacity: 0.65;
 }
 
-
-.secret-result-button:hover {
-    opacity: 1;
-
-    color: #7d7067;
-}
-
-
-/* =====================================
-   결과 확인 창
-===================================== */
-
+/* ===== 결과 모달 ===== */
 .result-modal {
     display: none;
-
     position: fixed;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 100%;
-
+    inset: 0;
     padding: 20px;
-
-    background:
-        rgba(60, 45, 35, 0.55);
-
+    background: rgba(60,45,35,0.55);
     z-index: 3000;
-
     align-items: center;
     justify-content: center;
 }
 
-
 .result-card {
     width: 100%;
-
     max-width: 480px;
-
     max-height: 90vh;
-
     overflow-y: auto;
-
     background: #fffaf2;
-
     border-radius: 20px;
-
     padding: 28px;
-
-    box-shadow:
-        0 15px 50px
-        rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
 }
-
 
 .result-card-title {
     font-size: 22px;
-
     font-weight: 800;
-
     margin-bottom: 22px;
 }
 
-
 .person-data {
     padding-bottom: 20px;
-
-    border-bottom:
-        1px solid
-        #eadfd1;
-
+    border-bottom: 1px solid #eadfd1;
     font-size: 13px;
-
     line-height: 2;
-
     text-align: left;
 }
-
 
 .result-main {
     margin-top: 22px;
-
     text-align: center;
 }
 
-
 .result-label {
     font-size: 12px;
-
     color: #8a7467;
 }
 
-
 .result-name {
     margin-top: 5px;
-
     color: #ad6047;
-
     font-size: 32px;
-
     font-weight: 800;
 }
 
-
 .score-list {
     margin-top: 20px;
-
     padding: 15px;
-
     border-radius: 12px;
-
     background: #f3e9dc;
-
     line-height: 2;
-
     font-size: 13px;
 }
 
-
 .answer-history {
     margin-top: 20px;
-
     text-align: left;
-
     font-size: 12px;
-
     line-height: 1.9;
-
     color: #71645c;
 }
 
-
 .close-result {
     width: 100%;
-
     margin-top: 22px;
-
     padding: 13px;
-
     border: none;
-
     border-radius: 50px;
-
     background: #49372e;
-
     color: white;
-
     font-weight: 700;
-
-    cursor: pointer;
 }
 
-
-/* =========================
-   푸터
-========================= */
-
+/* ===== 푸터 ===== */
 footer {
     flex-shrink: 0;
-
     width: 100%;
-
-    padding:
-        24px
-        5%;
-
+    padding: 24px 5%;
     background: #fffaf2;
-
-    border-top:
-        1px solid
-        #eadfd1;
+    border-top: 1px solid #eadfd1;
 }
-
 
 .footer-title {
     font-size: 16px;
-
     font-weight: 700;
-
     margin-bottom: 6px;
 }
 
-
 .footer-text {
     font-size: 14px;
-
     color: #6f635c;
 }
 
-
 .copyright {
     margin-top: 11px;
-
     font-size: 12px;
-
     color: #a19790;
 }
 
-
-/* =====================================
-   모바일
-===================================== */
-
+/* ===== 모바일 ===== */
 @media (max-width: 700px) {
-
     header {
         height: 58px;
-
-        padding:
-            0
-            18px;
+        padding: 0 18px;
     }
 
-
-    .logo {
-        font-size: 17px;
-    }
-
-
-    .menu {
-        font-size: 23px;
-    }
-
+    .logo { font-size: 17px; }
+    .menu { font-size: 23px; }
 
     .dropdown-menu {
         top: 38px;
-
         right: -5px;
-
         width: 170px;
-
-        border-radius: 12px;
-
-        padding: 7px;
     }
-
-
-    .dropdown-menu a {
-        padding:
-            12px
-            13px;
-
-        font-size: 13px;
-    }
-
 
     .hero {
-        flex: 1;
-
-        min-height: 0;
-
-        justify-content: center;
-
-        padding:
-            55px
-            12px
-            35px;
-
-        background-size: cover;
-
-        background-position:
-            center center;
+        padding: 40px 12px 30px;
+        background-position: center;
     }
-
 
     .small-title {
         font-size: 18px;
-
         margin-bottom: 5px;
     }
 
-
     .main-title {
         font-size: 34px;
-
-        line-height: 1.15;
-
         margin-bottom: 17px;
     }
 
-
     .description {
         font-size: 14px;
-
         line-height: 1.7;
     }
 
-
     .start-button {
         margin-top: 22px;
-
-        padding:
-            14px
-            31px;
-
+        padding: 14px 31px;
         font-size: 15px;
     }
 
-
-    /* 캐릭터 */
-
     .characters {
-        margin-top: 55px;
-
+        margin-top: 45px;
         gap: 3px;
     }
 
-
     .character {
         width: 33.333%;
-
         min-width: 0;
-
-        flex: 1;
     }
-
-
-    .character img {
-        width: 100%;
-
-        height: auto;
-    }
-
-
-    .anxious {
-        transform:
-            translateY(-4px);
-    }
-
-
-    /* 질문 */
 
     .quiz-screen {
-        padding:
-            10px
-            15px
-            25px;
+        padding: 10px 3px 20px;
     }
-
 
     .question-count {
         font-size: 13px;
-
         margin-bottom: 12px;
     }
 
-
     .progress {
         max-width: 320px;
-
         height: 6px;
-
-        margin-bottom: 45px;
-    }
-
-
-    .question {
-        min-height: 130px;
-
-        font-size: 22px;
-
-        line-height: 1.55;
-
-        margin-bottom: 45px;
-    }
-
-
-    .answer-buttons {
-        gap: 12px;
-    }
-
-
-    .answer-button {
-        width: 135px;
-
-        padding:
-            16px
-            10px;
-
-        font-size: 16px;
-    }
-
-
-    /* 개인정보 */
-
-    .info-screen {
-        padding:
-            10px
-            15px
-            25px;
-    }
-
-
-    .info-title {
-        font-size: 27px;
-    }
-
-
-    .info-description {
-        font-size: 13px;
-
         margin-bottom: 25px;
     }
 
+    .question {
+        min-height: 65px;
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
 
-    .input-group input {
-        height: 49px;
+    .question-line {
+        width: 45px;
+        height: 3px;
+        margin-bottom: 30px;
+    }
 
+    .answer-buttons { gap: 10px; }
+
+    .choice-card {
+        min-height: 190px;
+        padding: 22px 10px;
+        border-radius: 18px;
+        gap: 22px;
+    }
+
+    .choice-icon { font-size: 37px; }
+
+    .choice-text {
         font-size: 14px;
+        line-height: 1.6;
     }
 
-
-    .privacy-box {
-        font-size: 10px;
-    }
-
-
-    /* 완료 */
-
-    .complete-screen {
-        min-height: 380px;
-    }
-
-
-    .complete-title {
-        font-size: 30px;
-    }
-
-
-    .complete-text {
-        font-size: 13px;
-    }
-
-
-    .secret-result-button {
-        right: 5px;
-
-        font-size: 7px;
-    }
-
-
-    /* 결과 */
-
-    .result-card {
-        padding: 23px 20px;
-    }
-
-
-    .result-card-title {
-        font-size: 19px;
-    }
-
-
-    .result-name {
-        font-size: 28px;
-    }
-
-
-    /* 푸터 */
-
-    footer {
-        padding:
-            22px
-            18px
-            20px;
-    }
-
-
-    .footer-title {
-        font-size: 13px;
-    }
-
-
-    .footer-text {
+    .vs-badge {
+        width: 36px;
+        height: 36px;
         font-size: 12px;
     }
 
+    .back-button { margin-top: 23px; }
 
-    .copyright {
-        margin-top: 8px;
-
-        font-size: 10px;
+    .info-screen {
+        padding: 10px 15px 25px;
     }
 
+    .info-title { font-size: 27px; }
+
+    .info-description {
+        font-size: 13px;
+        margin-bottom: 25px;
+    }
+
+    .input-group input {
+        height: 49px;
+        font-size: 14px;
+    }
+
+    .privacy-box { font-size: 10px; }
+
+    .complete-screen { min-height: 380px; }
+    .complete-title { font-size: 30px; }
+    .complete-text { font-size: 13px; }
+
+    .result-card { padding: 23px 20px; }
+    .result-card-title { font-size: 19px; }
+    .result-name { font-size: 28px; }
+
+    footer { padding: 22px 18px 20px; }
+    .footer-title { font-size: 13px; }
+    .footer-text { font-size: 12px; }
+    .copyright { font-size: 10px; }
 }
-
-
-/* 작은 휴대폰 */
 
 @media (max-width: 380px) {
+    .hero { padding: 30px 10px 25px; }
+    .main-title { font-size: 30px; }
+    .characters { margin-top: 35px; }
+    .question { font-size: 20px; }
 
-    .hero {
-        padding:
-            40px
-            10px
-            25px;
+    .choice-card {
+        min-height: 170px;
+        padding: 18px 8px;
     }
 
-
-    .main-title {
-        font-size: 30px;
-    }
-
-
-    .characters {
-        margin-top: 40px;
-    }
-
-
-    .question {
-        font-size: 20px;
-    }
-
-
-    .answer-button {
-        width: 125px;
-    }
-
+    .choice-icon { font-size: 32px; }
+    .choice-text { font-size: 13px; }
 }
 
-
-/* 세로가 짧은 휴대폰 */
-
-@media
-(max-width: 700px)
-and (max-height: 700px) {
-
+@media (max-width: 700px) and (max-height: 700px) {
     .hero {
-        padding-top: 30px;
-
+        padding-top: 25px;
         padding-bottom: 20px;
     }
 
-
-    .characters {
-        margin-top: 30px;
-    }
-
-
-    .start-button {
-        margin-top: 15px;
-    }
-
-
-    .progress {
-        margin-bottom: 25px;
-    }
-
-
-    .question {
-        min-height: 90px;
-
-        margin-bottom: 25px;
-    }
-
+    .characters { margin-top: 30px; }
+    .progress { margin-bottom: 18px; }
+    .question-line { margin-bottom: 20px; }
+    .choice-card { min-height: 160px; }
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
 <div class="page">
 
-
-<!-- =========================
-     HEADER
-========================== -->
-
+<!-- ===== 헤더 ===== -->
 <header>
-
-
-    <a
-        class="logo"
-        href="index.html">
-
-        Archive LAB
-
-    </a>
-
+    <a class="logo" href="index.html">Archive LAB</a>
 
     <div class="menu-wrap">
+        <div class="menu" onclick="toggleMenu(event)">☰</div>
 
-
-        <div
-            class="menu"
-            onclick="toggleMenu(event)">
-
-            ☰
-
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="index.html">- Home</a>
+            <a href="index.html">- Introduction</a>
+            <a href="about.html">- Projects</a>
+            <a href="about.html">- Community</a>
         </div>
-
-
-        <div
-            class="dropdown-menu"
-            id="dropdownMenu">
-
-
-            <a href="index.html">
-                - Home
-            </a>
-
-
-            <a href="index.html">
-                - Introduction
-            </a>
-
-
-            <a href="about.html">
-                - Projects
-            </a>
-
-
-            <a href="about.html">
-                - Community
-            </a>
-
-
-        </div>
-
-
     </div>
-
-
 </header>
-
-
-
-<!-- =========================
-     MAIN
-========================== -->
 
 <main class="hero">
 
-
-<!-- =========================
-     1. 시작 화면
-========================== -->
-
+<!-- ===== 시작 화면 ===== -->
 <div id="startScreen">
-
 
     <section class="intro">
 
-
-        <div class="small-title">
-
-            나의 성향은 뭘까?
-
-        </div>
-
+        <div class="small-title">나의 성향은 뭘까?</div>
 
         <h1 class="main-title">
-
             성인애착유형
             <span>테스트</span>
-
         </h1>
 
-
         <div class="description">
-
             몇 가지 질문에 답하며<br>
-
             나의 관계 속 모습을 알아보세요.
-
         </div>
 
-
-        <button
-            class="start-button"
-            onclick="startTest()">
-
+        <button class="start-button" onclick="startTest()">
             테스트 시작하기 →
-
         </button>
 
-
     </section>
-
-
 
     <section class="characters">
-
-
         <div class="character secure">
-
-            <img
-                src="images/secure.png"
-                alt="안정형">
-
+            <img src="images/secure.png" alt="안정형">
         </div>
-
 
         <div class="character anxious">
-
-            <img
-                src="images/anxious.png"
-                alt="불안형">
-
+            <img src="images/anxious.png" alt="불안형">
         </div>
-
 
         <div class="character avoidant">
-
-            <img
-                src="images/avoidant.png"
-                alt="회피형">
-
+            <img src="images/avoidant.png" alt="회피형">
         </div>
-
-
     </section>
-
 
 </div>
 
+<!-- ===== 질문 화면 ===== -->
+<section class="quiz-screen" id="quizScreen">
 
-
-<!-- =========================
-     2. 질문 화면
-========================== -->
-
-<section
-    class="quiz-screen"
-    id="quizScreen">
-
-
-    <div
-        class="question-count"
-        id="questionCount">
-
-        01 / 06
-
-    </div>
-
+    <div class="question-count" id="questionCount">01 / 06</div>
 
     <div class="progress">
-
-        <div
-            class="progress-bar"
-            id="progressBar">
-        </div>
-
+        <div class="progress-bar" id="progressBar"></div>
     </div>
 
-
-    <div
-        class="question"
-        id="questionText">
-
-    </div>
-
+    <div class="question" id="questionText"></div>
+    <div class="question-line"></div>
 
     <div class="answer-buttons">
 
-
         <button
-            class="answer-button"
-            id="yesButton"
-            onclick="answerQuestion(true)">
+            type="button"
+            class="choice-card"
+            id="choiceCard0"
+            onclick="answerQuestion(0)">
 
-            YES
-
+            <span class="choice-icon" id="optionIcon0"></span>
+            <span class="choice-text" id="optionText0"></span>
         </button>
 
+        <div class="vs-badge">VS</div>
 
         <button
-            class="answer-button"
-            id="noButton"
-            onclick="answerQuestion(false)">
+            type="button"
+            class="choice-card"
+            id="choiceCard1"
+            onclick="answerQuestion(1)">
 
-            NO
-
+            <span class="choice-icon" id="optionIcon1"></span>
+            <span class="choice-text" id="optionText1"></span>
         </button>
-
 
     </div>
 
-
     <button
+        type="button"
         class="back-button"
         id="backButton"
         onclick="previousQuestion()">
 
         ← 이전 질문
-
     </button>
-
 
 </section>
 
+<!-- ===== 개인정보 입력 ===== -->
+<section class="info-screen" id="infoScreen">
 
-
-<!-- =========================
-     3. 개인정보 입력
-========================== -->
-
-<section
-    class="info-screen"
-    id="infoScreen">
-
-
-    <div class="info-small">
-
-        TEST COMPLETE
-
-    </div>
-
-
-    <div class="info-title">
-
-        마지막으로 알려주세요
-
-    </div>
-
+    <div class="info-small">TEST COMPLETE</div>
+    <div class="info-title">마지막으로 알려주세요</div>
 
     <div class="info-description">
-
         테스트 결과 안내를 위해<br>
         아래 정보를 입력해주세요.
-
     </div>
 
-
-
     <div class="input-group">
-
-        <label for="userName">
-            이름
-        </label>
-
+        <label for="userName">이름</label>
         <input
             type="text"
             id="userName"
+            autocomplete="name"
             placeholder="이름을 입력해주세요">
-
     </div>
 
-
-
     <div class="input-group">
-
-        <label for="userPhone">
-            휴대폰 번호
-        </label>
-
+        <label for="userPhone">휴대폰 번호</label>
         <input
             type="tel"
             id="userPhone"
-            inputmode="numeric"
+            inputmode="tel"
+            autocomplete="tel"
             placeholder="010-0000-0000">
-
     </div>
 
-
-
+    <!-- 거주지역 대신 나이 -->
     <div class="input-group">
-
-        <label for="userArea">
-            나이
-        </label>
-
+        <label for="userAge">나이</label>
         <input
-            type="text"
-            id="userArea"
-            placeholder="예: 21">
-
+            type="number"
+            id="userAge"
+            min="1"
+            max="120"
+            step="1"
+            inputmode="numeric"
+            placeholder="예: 27">
     </div>
-
-
 
     <div class="privacy-box">
-
         <strong>개인정보 수집 및 이용 안내</strong>
 
         <br><br>
 
         Archive LAB은 테스트 참여 확인 및
         결과 안내를 위해 이름, 휴대폰 번호,
-        거주지역(동)을 수집합니다.
+        나이를 수집하고자 합니다.
 
         <br><br>
 
-        입력한 개인정보는 테스트 운영 및
-        결과 안내 목적으로만 이용되며,
-        프로젝트 운영 종료 후 삭제됩니다.
+        수집 목적: 테스트 참여 확인 및 결과 안내
+
+        <br>
+
+        수집 항목: 이름, 휴대폰 번호, 나이
+
+        <br>
+
+        보유 기간: 별도로 안내한 프로젝트 종료일까지
 
         <br><br>
 
-        개인정보를 입력하고 제출하는 경우
-        위 개인정보 수집 및 이용 내용에
-        동의한 것으로 봅니다.
-
+        개인정보 제공에 동의하지 않을 수 있으며,
+        이 경우 결과 안내를 받을 수 없습니다.
     </div>
 
+    <label class="consent-label">
+        <input type="checkbox" id="privacyConsent">
+        <span>개인정보 수집 및 이용에 동의합니다.</span>
+    </label>
 
-
-    <div
-        class="error-message"
-        id="errorMessage">
-
-        이름, 휴대폰 번호, 나이를 모두 입력해주세요.
-
+    <div class="error-message" id="errorMessage" role="alert">
+        입력 정보를 확인해주세요.
     </div>
 
-
-
-    <button
-        class="submit-button"
-        onclick="submitTest()">
-
+    <button class="submit-button" onclick="submitTest()">
         제출하기
-
     </button>
 
-
-
-    <button
-        class="info-back-button"
-        onclick="backToLastQuestion()">
-
+    <button class="info-back-button" onclick="backToLastQuestion()">
         ← 마지막 질문으로 돌아가기
-
     </button>
-
 
 </section>
 
-
-
-<!-- =========================
-     4. 완료 화면
-========================== -->
-
-<section
-    class="complete-screen"
-    id="completeScreen">
-
+<!-- ===== 완료 화면 ===== -->
+<section class="complete-screen" id="completeScreen">
 
     <div class="complete-inner">
 
-
-        <div class="complete-icon">
-
-            ✓
-
-        </div>
-
+        <div class="complete-icon">✓</div>
 
         <div class="complete-title">
-
             참여해주셔서<br>
             감사합니다.
-
         </div>
-
 
         <div class="complete-text">
-
-            테스트가 정상적으로 완료되었습니다.<br>
+            테스트가 완료되었습니다.<br>
             결과는 추후 안내드리겠습니다.
-
         </div>
 
-
     </div>
-
-
 
     <button
         class="secret-result-button"
         onclick="openResult()">
-
         결과보기
-
     </button>
-
 
 </section>
 
-
 </main>
 
-
-
-<!-- =========================
-     FOOTER
-========================== -->
-
+<!-- ===== 푸터 ===== -->
 <footer>
 
-
     <div class="footer-title">
-
         청년 프로젝트 & 아카이브 연구소
-
     </div>
-
 
     <div class="footer-text">
-
         기록은 남기고, 이야기는 이어지게.
-
     </div>
 
-
     <div class="copyright">
-
         © 2026 Archive LAB. All rights reserved.
-
     </div>
-
 
     <div class="copyright">
-
         Instagram ㆍ archive_lab_sh
-
     </div>
-
 
 </footer>
 
-
 </div>
 
-
-
-<!-- =========================
-     관리자용 결과 확인 창
-========================== -->
-
-<div
-    class="result-modal"
-    id="resultModal">
-
+<!-- ===== 관리자 결과 창 ===== -->
+<div class="result-modal" id="resultModal">
 
     <div class="result-card">
 
-
         <div class="result-card-title">
-
             테스트 결과 확인
-
         </div>
 
-
-
-        <div
-            class="person-data"
-            id="personData">
-
-        </div>
-
-
+        <div class="person-data" id="personData"></div>
 
         <div class="result-main">
-
-
-            <div class="result-label">
-
-                내부 계산 결과
-
-            </div>
-
-
-            <div
-                class="result-name"
-                id="resultName">
-
-            </div>
-
-
-            <div
-                class="score-list"
-                id="scoreList">
-
-            </div>
-
-
+            <div class="result-label">내부 계산 결과</div>
+            <div class="result-name" id="resultName"></div>
+            <div class="score-list" id="scoreList"></div>
         </div>
 
+        <div class="answer-history" id="answerHistory"></div>
 
-
-        <div
-            class="answer-history"
-            id="answerHistory">
-
-        </div>
-
-
-
-        <button
-            class="close-result"
-            onclick="closeResult()">
-
+        <button class="close-result" onclick="closeResult()">
             결과 닫기
-
         </button>
-
 
     </div>
 
-
 </div>
-
-
 
 <script>
 
-
-/* =====================================
-   질문
-
-   secure   = 안정
-   anxious  = 불안
-   avoidant = 회피
-===================================== */
+/* ===== 질문 데이터: 기존 6문항 유지 ===== */
 
 const questions = [
-
     {
-        text:
-            "가까운 사람에게 솔직하게 표현한다.",
-
-        type:
-            "secure"
+        title: "연인의 연락이 늦어질 때 나는?",
+        options: [
+            {
+                text: "바쁜 일이 있겠지 하고 기다린다",
+                icon: "🌿",
+                type: "secure"
+            },
+            {
+                text: "무슨 일이 있나 계속 신경 쓰인다",
+                icon: "💭",
+                type: "anxious"
+            }
+        ]
     },
-
-
     {
-        text:
-            "연락이 평소보다 늦으면 신경 쓰인다.",
-
-        type:
-            "anxious"
+        title: "연인과 갈등이 생기면?",
+        options: [
+            {
+                text: "서로 이야기하며 풀어가고 싶다",
+                icon: "🤝",
+                type: "secure"
+            },
+            {
+                text: "당장은 거리를 두고 혼자 있고 싶다",
+                icon: "🌙",
+                type: "avoidant"
+            }
+        ]
     },
-
-
     {
-        text:
-            "누군가와 지나치게 가까워지면 오히려 거리를 둔다.",
-
-        type:
-            "avoidant"
+        title: "상대방이 애정을 표현하면?",
+        options: [
+            {
+                text: "더 자주 표현해주길 바라게 된다",
+                icon: "💕",
+                type: "anxious"
+            },
+            {
+                text: "너무 가까워지면 부담스러울 때가 있다",
+                icon: "🕊️",
+                type: "avoidant"
+            }
+        ]
     },
-
-
     {
-        text:
-            "가까운 사람과 떨어져 있어도 불안하지 않다.",
-
-        type:
-            "secure"
+        title: "힘든 일이 생겼을 때 나는?",
+        options: [
+            {
+                text: "믿는 사람에게 편하게 털어놓는다",
+                icon: "💬",
+                type: "secure"
+            },
+            {
+                text: "가능하면 혼자 해결하려고 한다",
+                icon: "🧩",
+                type: "avoidant"
+            }
+        ]
     },
-
-
     {
-        text:
-            "상대방의 말이나 행동에 쉽게 의미 부여를 한다.",
-
-        type:
-            "anxious"
+        title: "연인이 혼자만의 시간을 원하면?",
+        options: [
+            {
+                text: "서로에게 개인 시간도 필요하다고 생각한다",
+                icon: "☕",
+                type: "secure"
+            },
+            {
+                text: "나와 멀어지려는 건 아닐까 걱정된다",
+                icon: "🥺",
+                type: "anxious"
+            }
+        ]
     },
-
-
     {
-        text:
-            "힘든 일이 있으면 혼자 해결하는 편이 편하다.",
-
-        type:
-            "avoidant"
+        title: "관계가 깊어질수록 나는?",
+        options: [
+            {
+                text: "상대방이 떠날까 봐 더 신경 쓰게 된다",
+                icon: "💗",
+                type: "anxious"
+            },
+            {
+                text: "나만의 자유가 줄어들까 봐 신경 쓰인다",
+                icon: "🪽",
+                type: "avoidant"
+            }
+        ]
     }
-
 ];
 
-
-
-/* =====================================
-   테스트 데이터
-===================================== */
+/* ===== 테스트 상태 ===== */
 
 let currentQuestion = 0;
 
-
-/*
-   true  = YES
-   false = NO
-   null  = 아직 답하지 않음
-*/
-
-let answers = [
-
-    null,
-    null,
-    null,
-    null,
-    null,
-    null
-
-];
-
+// null: 미응답 / 0: 왼쪽 / 1: 오른쪽
+let answers = Array(questions.length).fill(null);
 
 let participant = {
-
     name: "",
-
     phone: "",
-
-    area: ""
-
+    age: ""
 };
-
 
 let finalScores = {
-
     secure: 0,
-
     anxious: 0,
-
     avoidant: 0
-
 };
-
 
 let finalResult = "";
 
-
-
-/* =====================================
-   테스트 시작
-===================================== */
+/* ===== 테스트 시작 ===== */
 
 function startTest() {
 
-
     currentQuestion = 0;
+    answers = Array(questions.length).fill(null);
 
+    participant = {
+        name: "",
+        phone: "",
+        age: ""
+    };
 
-    answers = [
+    finalScores = {
+        secure: 0,
+        anxious: 0,
+        avoidant: 0
+    };
 
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
+    finalResult = "";
 
-    ];
-
+    document.getElementById("userName").value = "";
+    document.getElementById("userPhone").value = "";
+    document.getElementById("userAge").value = "";
+    document.getElementById("privacyConsent").checked = false;
+    document.getElementById("errorMessage").style.display = "none";
 
     hideAllScreens();
 
-
-    document
-        .getElementById("quizScreen")
-        .style.display =
-        "block";
-
+    document.getElementById("quizScreen").style.display = "block";
 
     showQuestion();
-
 }
 
-
-
-/* =====================================
-   모든 화면 숨기기
-===================================== */
+/* ===== 모든 화면 숨기기 ===== */
 
 function hideAllScreens() {
 
-
-    document
-        .getElementById("startScreen")
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById("quizScreen")
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById("infoScreen")
-        .style.display =
-        "none";
-
-
-    document
-        .getElementById("completeScreen")
-        .style.display =
-        "none";
-
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("quizScreen").style.display = "none";
+    document.getElementById("infoScreen").style.display = "none";
+    document.getElementById("completeScreen").style.display = "none";
 }
 
-
-
-/* =====================================
-   질문 표시
-===================================== */
+/* ===== 질문 표시 ===== */
 
 function showQuestion() {
 
+    const question = questions[currentQuestion];
+    const number = currentQuestion + 1;
 
-    const question =
-        questions[currentQuestion];
+    document.getElementById("questionText").textContent =
+        question.title;
 
+    document.getElementById("questionCount").textContent =
+        String(number).padStart(2, "0") +
+        " / " +
+        String(questions.length).padStart(2, "0");
 
-    const number =
-        currentQuestion + 1;
+    const progress = number / questions.length * 100;
 
-
-
-    document
-        .getElementById("questionText")
-        .textContent =
-        question.text;
-
-
-
-    document
-        .getElementById("questionCount")
-        .textContent =
-        String(number)
-        .padStart(2, "0")
-        +
-        " / 06";
-
-
-
-    const progress =
-        (number / questions.length)
-        *
-        100;
-
-
-
-    document
-        .getElementById("progressBar")
-        .style.width =
+    document.getElementById("progressBar").style.width =
         progress + "%";
 
+    question.options.forEach(function(option, index) {
 
+        document.getElementById("optionIcon" + index).textContent =
+            option.icon;
 
-    /*
-       첫 질문에서는 이전 버튼 숨김
-    */
+        document.getElementById("optionText" + index).textContent =
+            option.text;
+    });
 
-    if (
-        currentQuestion
-        ===
-        0
-    ) {
-
-        document
-            .getElementById("backButton")
-            .style.visibility =
-            "hidden";
-
-    }
-
-    else {
-
-        document
-            .getElementById("backButton")
-            .style.visibility =
-            "visible";
-
-    }
-
-
+    document.getElementById("backButton").style.visibility =
+        currentQuestion === 0 ? "hidden" : "visible";
 
     updateSelectedAnswer();
-
 }
 
-
-
-/* =====================================
-   이전에 선택한 답 표시
-===================================== */
+/* ===== 선택 상태 표시 ===== */
 
 function updateSelectedAnswer() {
 
+    for (let index = 0; index < 2; index++) {
 
-    const yesButton =
-        document
-        .getElementById(
-            "yesButton"
-        );
+        const card = document.getElementById("choiceCard" + index);
 
+        const selected = answers[currentQuestion] === index;
 
-    const noButton =
-        document
-        .getElementById(
-            "noButton"
-        );
-
-
-    yesButton
-        .classList
-        .remove(
-            "selected"
-        );
-
-
-    noButton
-        .classList
-        .remove(
-            "selected"
-        );
-
-
-
-    if (
-        answers[currentQuestion]
-        ===
-        true
-    ) {
-
-        yesButton
-            .classList
-            .add(
-                "selected"
-            );
-
+        card.classList.toggle("selected", selected);
+        card.setAttribute("aria-pressed", String(selected));
     }
-
-
-
-    if (
-        answers[currentQuestion]
-        ===
-        false
-    ) {
-
-        noButton
-            .classList
-            .add(
-                "selected"
-            );
-
-    }
-
 }
 
+/* ===== 카드 선택 ===== */
 
+function answerQuestion(index) {
 
-/* =====================================
-   YES / NO 선택
-===================================== */
+    answers[currentQuestion] = index;
 
-function answerQuestion(answer) {
-
-
-    /*
-       현재 문제 답 저장
-    */
-
-    answers[currentQuestion] =
-        answer;
-
-
-
-    /*
-       마지막 문제가 아니면
-       다음 문제
-    */
-
-    if (
-        currentQuestion
-        <
-        questions.length - 1
-    ) {
-
+    if (currentQuestion < questions.length - 1) {
 
         currentQuestion++;
-
-
         showQuestion();
 
-    }
-
-
-    /*
-       마지막 문제라면
-       개인정보 화면
-    */
-
-    else {
-
+    } else {
 
         calculateResult();
-
-
         hideAllScreens();
 
-
-        document
-            .getElementById("infoScreen")
-            .style.display =
-            "block";
-
+        document.getElementById("infoScreen").style.display = "block";
     }
-
 }
 
-
-
-/* =====================================
-   이전 질문
-===================================== */
+/* ===== 이전 질문 ===== */
 
 function previousQuestion() {
 
-
-    if (
-        currentQuestion
-        >
-        0
-    ) {
-
-
+    if (currentQuestion > 0) {
         currentQuestion--;
-
-
         showQuestion();
-
     }
-
 }
 
-
-
-/* =====================================
-   개인정보 화면에서
-   마지막 질문으로 돌아가기
-===================================== */
+/* ===== 마지막 질문으로 복귀 ===== */
 
 function backToLastQuestion() {
 
-
-    currentQuestion =
-        questions.length - 1;
-
+    currentQuestion = questions.length - 1;
 
     hideAllScreens();
 
-
-    document
-        .getElementById("quizScreen")
-        .style.display =
-        "block";
-
+    document.getElementById("quizScreen").style.display = "block";
 
     showQuestion();
-
 }
 
-
-
-/* =====================================
-   결과 계산
-
-   YES인 질문만 해당 유형 +1
-===================================== */
+/* ===== 결과 계산 ===== */
 
 function calculateResult() {
 
-
     finalScores = {
-
         secure: 0,
-
         anxious: 0,
-
         avoidant: 0
-
     };
 
+    questions.forEach(function(question, index) {
 
+        const selected = answers[index];
 
-    questions.forEach(
-        function (
-            question,
-            index
-        ) {
+        if (selected !== null) {
 
+            const selectedOption = question.options[selected];
 
-            if (
-                answers[index]
-                ===
-                true
-            ) {
-
-
-                finalScores[
-                    question.type
-                ]++;
-
-            }
-
+            finalScores[selectedOption.type]++;
         }
+    });
+
+    const maxScore = Math.max(
+        finalScores.secure,
+        finalScores.anxious,
+        finalScores.avoidant
     );
-
-
-
-    const maxScore =
-        Math.max(
-
-            finalScores.secure,
-
-            finalScores.anxious,
-
-            finalScores.avoidant
-
-        );
-
-
 
     const resultTypes = [];
 
-
-    if (
-        finalScores.secure
-        ===
-        maxScore
-    ) {
-
-        resultTypes.push(
-            "안정"
-        );
-
+    if (finalScores.secure === maxScore) {
+        resultTypes.push("안정");
     }
 
-
-    if (
-        finalScores.anxious
-        ===
-        maxScore
-    ) {
-
-        resultTypes.push(
-            "불안"
-        );
-
+    if (finalScores.anxious === maxScore) {
+        resultTypes.push("불안");
     }
 
-
-    if (
-        finalScores.avoidant
-        ===
-        maxScore
-    ) {
-
-        resultTypes.push(
-            "회피"
-        );
-
+    if (finalScores.avoidant === maxScore) {
+        resultTypes.push("회피");
     }
 
+    if (resultTypes.length === 1) {
 
+        finalResult = resultTypes[0] + "형";
 
-    if (
-        resultTypes.length
-        ===
-        1
-    ) {
+    } else {
 
-
-        finalResult =
-            resultTypes[0]
-            +
-            "형";
-
+        finalResult = resultTypes.join(" · ") + " 혼합형";
     }
-
-    else {
-
-
-        finalResult =
-            resultTypes.join(" · ")
-            +
-            " 혼합형";
-
-    }
-
 }
 
-
-
-/* =====================================
-   제출
-===================================== */
+/* ===== 개인정보 제출 ===== */
 
 function submitTest() {
 
-
     const name =
-        document
-        .getElementById(
-            "userName"
-        )
-        .value
-        .trim();
-
+        document.getElementById("userName").value.trim();
 
     const phone =
-        document
-        .getElementById(
-            "userPhone"
-        )
-        .value
-        .trim();
+        document.getElementById("userPhone").value.trim();
 
+    const age =
+        document.getElementById("userAge").value.trim();
 
-    const area =
-        document
-        .getElementById(
-            "userArea"
-        )
-        .value
-        .trim();
+    const consent =
+        document.getElementById("privacyConsent").checked;
 
+    const errorElement =
+        document.getElementById("errorMessage");
 
+    if (name === "" || phone === "" || age === "") {
 
-    /*
-       빈칸 확인
-    */
+        errorElement.textContent =
+            "이름, 휴대폰 번호, 나이를 모두 입력해주세요.";
 
-    if (
-        name === ""
-        ||
-        phone === ""
-        ||
-        area === ""
-    ) {
-
-
-        document
-            .getElementById(
-                "errorMessage"
-            )
-            .style.display =
-            "block";
-
-
+        errorElement.style.display = "block";
         return;
-
     }
 
+    const normalizedPhone = phone.replace(/-/g, "");
 
+    if (!/^01[016789]\d{7,8}$/.test(normalizedPhone)) {
 
-    document
-        .getElementById(
-            "errorMessage"
-        )
-        .style.display =
-        "none";
+        errorElement.textContent =
+            "올바른 휴대폰 번호를 입력해주세요.";
 
+        errorElement.style.display = "block";
+        return;
+    }
 
+    // 나이 입력 검증
+    const numericAge = Number(age);
 
-    /*
-       참여자 정보 저장
-    */
+    if (
+        !Number.isInteger(numericAge) ||
+        numericAge < 1 ||
+        numericAge > 120
+    ) {
+
+        errorElement.textContent =
+            "올바른 나이를 입력해주세요. (1~120세)";
+
+        errorElement.style.display = "block";
+        return;
+    }
+
+    if (!consent) {
+
+        errorElement.textContent =
+            "개인정보 수집 및 이용 동의를 확인해주세요.";
+
+        errorElement.style.display = "block";
+        return;
+    }
+
+    errorElement.style.display = "none";
 
     participant = {
-
         name: name,
-
         phone: phone,
-
-        area: area
-
+        age: String(numericAge)
     };
-
-
-
-    /*
-       혹시 답 수정 후 제출했을 경우
-       결과 다시 계산
-    */
 
     calculateResult();
 
-
-
-    /*
-       완료 화면
-    */
-
     hideAllScreens();
 
-
-    document
-        .getElementById(
-            "completeScreen"
-        )
-        .style.display =
-        "flex";
-
+    document.getElementById("completeScreen").style.display = "flex";
 }
 
-
-
-/* =====================================
-   결과보기
-===================================== */
+/* ===== 관리자 결과보기 ===== */
 
 function openResult() {
 
+    // 이름, 휴대폰, 나이 표시
+    document.getElementById("personData").innerHTML =
+        "<strong>이름</strong> : " +
+        escapeHtml(participant.name) +
+        "<br>" +
+        "<strong>휴대폰</strong> : " +
+        escapeHtml(participant.phone) +
+        "<br>" +
+        "<strong>나이</strong> : " +
+        escapeHtml(participant.age) +
+        "세";
 
-    /*
-       참여자 정보
-    */
-
-    document
-        .getElementById(
-            "personData"
-        )
-        .innerHTML =
-
-        "<strong>이름</strong> : "
-        +
-        escapeHtml(
-            participant.name
-        )
-        +
-        "<br>"
-        +
-        "<strong>휴대폰</strong> : "
-        +
-        escapeHtml(
-            participant.phone
-        )
-        +
-        "<br>"
-        +
-        "<strong>나이</strong> : "
-        +
-        escapeHtml(
-            participant.area
-        );
-
-
-
-    /*
-       결과
-    */
-
-    document
-        .getElementById(
-            "resultName"
-        )
-        .textContent =
+    document.getElementById("resultName").textContent =
         finalResult;
 
+    // 유형별 점수
+    document.getElementById("scoreList").innerHTML =
+        "안정형 " + finalScores.secure + " / 4" +
+        "<br>" +
+        "불안형 " + finalScores.anxious + " / 4" +
+        "<br>" +
+        "회피형 " + finalScores.avoidant + " / 4";
 
+    // 질문과 응답 기록
+    let history = "<strong>응답 기록</strong><br><br>";
 
-    /*
-       점수
-    */
+    answers.forEach(function(answer, index) {
 
-    document
-        .getElementById(
-            "scoreList"
-        )
-        .innerHTML =
+        const question = questions[index];
 
-        "안정형 "
-        +
-        finalScores.secure
-        +
-        " / 2"
-        +
-        "<br>"
-        +
-        "불안형 "
-        +
-        finalScores.anxious
-        +
-        " / 2"
-        +
-        "<br>"
-        +
-        "회피형 "
-        +
-        finalScores.avoidant
-        +
-        " / 2";
+        const selectedOption =
+            answer === null ? null : question.options[answer];
 
+        history +=
+            "<strong>Q" + (index + 1) + ".</strong> " +
+            escapeHtml(question.title) +
+            "<br>" +
+            "선택: " +
+            escapeHtml(
+                selectedOption ? selectedOption.text : "미응답"
+            ) +
+            "<br><br>";
+    });
 
-
-    /*
-       실제 응답 기록
-    */
-
-    let history =
-        "<strong>응답 기록</strong><br><br>";
-
-
-
-    answers.forEach(
-        function (
-            answer,
-            index
-        ) {
-
-
-            history +=
-
-                "Q"
-                +
-                (index + 1)
-                +
-                ". "
-                +
-                (
-                    answer
-                    ===
-                    true
-                    ?
-                    "YES"
-                    :
-                    "NO"
-                )
-                +
-                "<br>";
-
-        }
-    );
-
-
-
-    document
-        .getElementById(
-            "answerHistory"
-        )
-        .innerHTML =
+    document.getElementById("answerHistory").innerHTML =
         history;
 
-
-
-    /*
-       창 열기
-    */
-
-    document
-        .getElementById(
-            "resultModal"
-        )
-        .style.display =
-        "flex";
-
+    document.getElementById("resultModal").style.display = "flex";
 }
 
-
-
-/* =====================================
-   결과 닫기
-===================================== */
+/* ===== 결과 창 닫기 ===== */
 
 function closeResult() {
-
-
-    document
-        .getElementById(
-            "resultModal"
-        )
-        .style.display =
-        "none";
-
+    document.getElementById("resultModal").style.display = "none";
 }
 
-
-
-/* =====================================
-   HTML 특수문자 처리
-===================================== */
+/* ===== HTML 특수문자 처리 ===== */
 
 function escapeHtml(text) {
 
+    const div = document.createElement("div");
 
-    const div =
-        document
-        .createElement(
-            "div"
-        );
-
-
-    div.textContent =
-        text;
-
+    div.textContent = String(text);
 
     return div.innerHTML;
-
 }
 
-
-
-/* =====================================
-   메뉴
-===================================== */
+/* ===== 메뉴 ===== */
 
 function toggleMenu(event) {
 
-
     event.stopPropagation();
 
-
-    const menu =
-        document
-        .getElementById(
-            "dropdownMenu"
-        );
-
-
-    menu
-        .classList
-        .toggle(
-            "show"
-        );
-
+    document.getElementById("dropdownMenu")
+        .classList.toggle("show");
 }
 
+document.addEventListener("click", function() {
 
+    document.getElementById("dropdownMenu")
+        .classList.remove("show");
+});
 
-/* 메뉴 바깥 클릭 */
+document.getElementById("dropdownMenu")
+    .addEventListener("click", function(event) {
 
-document
-    .addEventListener(
-        "click",
-        function () {
+        event.stopPropagation();
+    });
 
+/* ===== 결과창 바깥 클릭 ===== */
 
-            document
-                .getElementById(
-                    "dropdownMenu"
-                )
-                .classList
-                .remove(
-                    "show"
-                );
+document.getElementById("resultModal")
+    .addEventListener("click", function(event) {
 
+        if (event.target === this) {
+            closeResult();
         }
-    );
+    });
 
+/* ===== ESC로 결과창 닫기 ===== */
 
+document.addEventListener("keydown", function(event) {
 
-/* 메뉴 내부 클릭 */
-
-document
-    .getElementById(
-        "dropdownMenu"
-    )
-    .addEventListener(
-        "click",
-        function(event) {
-
-
-            event.stopPropagation();
-
-        }
-    );
-
-
-
-/* 결과창 바깥쪽을 누르면 닫기 */
-
-document
-    .getElementById(
-        "resultModal"
-    )
-    .addEventListener(
-        "click",
-        function(event) {
-
-
-            if (
-                event.target
-                ===
-                this
-            ) {
-
-
-                closeResult();
-
-            }
-
-        }
-    );
-
+    if (event.key === "Escape") {
+        closeResult();
+    }
+});
 
 </script>
-
-
 </body>
-
 </html>
